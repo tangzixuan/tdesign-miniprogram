@@ -9,27 +9,10 @@ import { TabValue } from '../tabs/index';
 export interface TdTabPanelProps {
   /**
    * 透传至 Badge 组件
-   * @default null
    */
   badgeProps?: {
     type: ObjectConstructor;
     value?: object;
-  };
-  /**
-   * 自定义组件样式
-   * @default ''
-   */
-  style?: {
-    type: StringConstructor;
-    value?: string;
-  };
-  /**
-   * 选项卡内容隐藏时是否销毁
-   * @default true
-   */
-  destroyOnHide?: {
-    type: BooleanConstructor;
-    value?: boolean;
   };
   /**
    * 是否禁用当前选项卡
@@ -40,7 +23,7 @@ export interface TdTabPanelProps {
     value?: boolean;
   };
   /**
-   * 图标，传对象则透传至 Icon
+   * `1.0.0-rc.1`。图标，传对象则透传至 Icon
    */
   icon?: {
     type: null;

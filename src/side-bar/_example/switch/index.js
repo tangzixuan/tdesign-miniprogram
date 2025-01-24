@@ -1,4 +1,4 @@
-const image = 'https://tdesign.gtimg.com/miniprogram/images/example2.png';
+const image = 'https://tdesign.gtimg.com/mobile/demos/example2.png';
 const items = new Array(12).fill({ label: '标题文字', image }, 0, 12);
 
 Page({
@@ -40,13 +40,27 @@ Page({
         title: '标题五',
         badgeProps: {},
         disabled: true,
-        items: [],
+        items: items.slice(0, 8),
       },
     ],
+    navbarHeight: 0,
   },
+  onLoad() {
+    this.getCustomNavbarHeight();
+  },
+
+  getCustomNavbarHeight() {
+    const query = wx.createSelectorQuery();
+    query.select('.custom-navbar').boundingClientRect();
+    query.exec((res) => {
+      const { height = 0 } = res[0] || {};
+      this.setData({ navbarHeight: height });
+    });
+  },
+
   onSideBarChange(e) {
     const { value } = e.detail;
-
-    this.setData({ sideBarIndex: value });
+    console.log('---', value);
+    this.setData({ sideBarIndex: value, scrollTop: 0 });
   },
 });

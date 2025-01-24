@@ -5,6 +5,7 @@
  * */
 
 import { ButtonProps } from '../button/index';
+import { PopupProps } from '../popup/index';
 import { KeysType } from '../common/common';
 
 export interface TdPickerProps {
@@ -33,12 +34,20 @@ export interface TdPickerProps {
     value?: boolean | string | ButtonProps;
   };
   /**
-   * 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容，值类型为 TNode 表示自定义头部内容
+   * 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容
    * @default true
    */
   header?: {
     type: BooleanConstructor;
     value?: boolean;
+  };
+  /**
+   * PickerItem 的子项高度，单位 rpx
+   * @default 80
+   */
+  itemHeight?: {
+    type: NumberConstructor;
+    value?: number;
   };
   /**
    * 用来定义 value / label 在 `options` 中对应的字段别名
@@ -48,12 +57,36 @@ export interface TdPickerProps {
     value?: KeysType;
   };
   /**
+   * 透传 `Popup` 组件全部属性
+   * @default {}
+   */
+  popupProps?: {
+    type: ObjectConstructor;
+    value?: PopupProps;
+  };
+  /**
    * 标题
    * @default ''
    */
   title?: {
     type: StringConstructor;
     value?: string;
+  };
+  /**
+   * 是否使用弹出层包裹
+   * @default true
+   */
+  usePopup?: {
+    type: BooleanConstructor;
+    value?: boolean;
+  };
+  /**
+   * 是否使用了自定义导航栏
+   * @default false
+   */
+  usingCustomNavbar?: {
+    type: BooleanConstructor;
+    value?: boolean;
   };
   /**
    * 选中值
@@ -77,13 +110,6 @@ export interface TdPickerProps {
     type: BooleanConstructor;
     value?: boolean;
   };
-}
-
-export type PickerColumn = PickerColumnItem[];
-
-export interface PickerColumnItem {
-  label: string;
-  value: string;
 }
 
 export type PickerValue = string | number;

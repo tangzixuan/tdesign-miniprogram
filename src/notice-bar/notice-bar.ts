@@ -25,8 +25,8 @@ export default class NoticeBar extends SuperComponent {
   ];
 
   options: ComponentsOptionsType = {
-    styleIsolation: 'apply-shared',
     multipleSlots: true,
+    pureDataPattern: /^__/,
   };
 
   properties = props;
@@ -35,6 +35,7 @@ export default class NoticeBar extends SuperComponent {
     prefix,
     classPrefix: name,
     loop: -1,
+    __ready: false,
   };
 
   observers = {
@@ -51,6 +52,7 @@ export default class NoticeBar extends SuperComponent {
     },
 
     visible(visible) {
+      if (!this.data.__ready) return;
       if (visible) {
         this.show();
       } else {
@@ -69,6 +71,7 @@ export default class NoticeBar extends SuperComponent {
     },
 
     content() {
+      if (!this.data.__ready) return;
       this.clearNoticeBarAnimation();
       this.initAnimation();
     },
@@ -88,6 +91,7 @@ export default class NoticeBar extends SuperComponent {
 
     ready() {
       this.show();
+      this.setData({ __ready: true });
     },
   };
 
@@ -97,29 +101,31 @@ export default class NoticeBar extends SuperComponent {
       const warpID = `.${name}__content-wrap`;
       const nodeID = `.${name}__content`;
       getAnimationFrame(this, () => {
-        Promise.all([getRect(this, nodeID), getRect(this, warpID)]).then(([nodeRect, wrapRect]) => {
-          const { marquee } = this.properties;
+        Promise.all([getRect(this, nodeID), getRect(this, warpID)])
+          .then(([nodeRect, wrapRect]) => {
+            const { marquee } = this.properties;
 
-          if (nodeRect == null || wrapRect == null || !nodeRect.width || !wrapRect.width) {
-            return;
-          }
+            if (nodeRect == null || wrapRect == null || !nodeRect.width || !wrapRect.width || marquee === false) {
+              return;
+            }
 
-          if (marquee || wrapRect.width < nodeRect.width) {
-            const speeding = marquee.speed || 50;
-            const delaying = marquee.delay || 0;
-            const animationDuration = ((wrapRect.width + nodeRect.width) / speeding) * 1000;
-            const firstAnimationDuration = (nodeRect.width / speeding) * 1000;
-            this.setData({
-              wrapWidth: Number(wrapRect.width),
-              nodeWidth: Number(nodeRect.width),
-              animationDuration: animationDuration,
-              delay: delaying,
-              loop: marquee.loop - 1,
-              firstAnimationDuration: firstAnimationDuration,
-            });
-            marquee.loop !== 0 && this.startScrollAnimation(true);
-          }
-        });
+            if (marquee || wrapRect.width < nodeRect.width) {
+              const speeding = marquee.speed || 50;
+              const delaying = marquee.delay || 0;
+              const animationDuration = ((wrapRect.width + nodeRect.width) / speeding) * 1000;
+              const firstAnimationDuration = (nodeRect.width / speeding) * 1000;
+              this.setData({
+                wrapWidth: Number(wrapRect.width),
+                nodeWidth: Number(nodeRect.width),
+                animationDuration: animationDuration,
+                delay: delaying,
+                loop: marquee.loop - 1,
+                firstAnimationDuration: firstAnimationDuration,
+              });
+              marquee.loop !== 0 && this.startScrollAnimation(true);
+            }
+          })
+          .catch(() => {});
       });
     },
 
@@ -180,6 +186,11 @@ export default class NoticeBar extends SuperComponent {
       this.setData({
         _prefixIcon: calcIcon(v, THEME_ICON[theme]),
       });
+    },
+
+    onChange(e: WechatMiniprogram.SwiperChange) {
+      const { current, source } = e.detail;
+      this.triggerEvent('change', { current, source });
     },
 
     clickPrefixIcon() {

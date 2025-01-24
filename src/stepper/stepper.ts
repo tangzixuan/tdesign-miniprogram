@@ -9,10 +9,6 @@ const name = `${prefix}-stepper`;
 export default class Stepper extends SuperComponent {
   externalClasses = [`${prefix}-class`, `${prefix}-class-input`, `${prefix}-class-minus`, `${prefix}-class-plus`];
 
-  options = {
-    addGlobalClass: true,
-  };
-
   properties = { ...props };
 
   controlledProps = [
@@ -24,8 +20,9 @@ export default class Stepper extends SuperComponent {
 
   observers = {
     value(v) {
+      this.preValue = Number(v);
       this.setData({
-        currentValue: Number(v),
+        currentValue: this.format(Number(v)),
       });
     },
   };
@@ -36,77 +33,114 @@ export default class Stepper extends SuperComponent {
     prefix,
   };
 
-  attached() {
-    const { value, min } = this.properties;
-    this.setData({
-      currentValue: value ? Number(value) : min,
-    });
-  }
+  lifetimes = {
+    attached() {
+      const { value, min } = this.properties;
+      this.setData({
+        currentValue: value ? Number(value) : min,
+      });
+    },
+  };
 
-  isDisabled(type) {
-    const { min, max, disabled } = this.properties;
-    const { currentValue } = this.data as any;
-    if (disabled) {
-      return true;
-    }
-    if (type === 'minus' && currentValue <= min) {
-      return true;
-    }
-    if (type === 'plus' && currentValue >= max) {
-      return true;
-    }
-    return false;
-  }
-
-  format(value) {
-    const { min, max } = this.properties as any;
-    // 超过边界取边界值
-    return Math.max(Math.min(max, value, Number.MAX_SAFE_INTEGER), min, Number.MIN_SAFE_INTEGER);
-  }
-
-  setValue(value) {
-    this._trigger('change', { value });
-  }
-
-  minusValue() {
-    if (this.isDisabled('minus')) {
-      this.triggerEvent('overlimit', { type: 'minus' });
+  methods = {
+    isDisabled(type) {
+      const { min, max, disabled } = this.properties;
+      const { currentValue } = this.data as any;
+      if (disabled) {
+        return true;
+      }
+      if (type === 'minus' && currentValue <= min) {
+        return true;
+      }
+      if (type === 'plus' && currentValue >= max) {
+        return true;
+      }
       return false;
-    }
-    const { currentValue, step } = this.data as any;
-    this.setValue(this.format(currentValue - step));
-  }
+    },
 
-  plusValue() {
-    if (this.isDisabled('plus')) {
-      this.triggerEvent('overlimit', { type: 'plus' });
-      return false;
-    }
-    const { currentValue, step } = this.data as any;
-    this.setValue(this.format(currentValue + step));
-  }
+    getLen(num: number) {
+      const numStr = num.toString();
+      return numStr.indexOf('.') === -1 ? 0 : numStr.split('.')[1].length;
+    },
 
-  changeValue(e) {
-    const value =
-      String(e.detail.value)
-        .split('.')[0]
-        .replace(/[^-0-9]/g, '') || 0;
-    this.setValue(this.format(Number(value)));
-    return value;
-  }
+    add(a: number, b: number) {
+      const maxLen = Math.max(this.getLen(a), this.getLen(b));
+      const base = 10 ** maxLen;
+      return Math.round(a * base + b * base) / base;
+    },
 
-  focusHandle(e) {
-    const value = this.changeValue(e);
-    this.triggerEvent('focus', { value });
-  }
+    format(value) {
+      const { min, max, step } = this.properties as any;
+      const len = Math.max(this.getLen(step), this.getLen(value));
+      // 超过边界取边界值
+      return Math.max(Math.min(max, value, Number.MAX_SAFE_INTEGER), min, Number.MIN_SAFE_INTEGER).toFixed(len);
+    },
 
-  inputHandle(e) {
-    const value = this.changeValue(e);
-    this.triggerEvent('input', { value });
-  }
+    setValue(value) {
+      value = this.format(value);
+      if (this.preValue === value) return;
+      this.preValue = value;
+      this._trigger('change', { value: Number(value) });
+    },
 
-  blurHandle(e) {
-    const value = this.changeValue(e);
-    this.triggerEvent('blur', { value });
-  }
+    minusValue() {
+      if (this.isDisabled('minus')) {
+        this.triggerEvent('overlimit', { type: 'minus' });
+        return false;
+      }
+      const { currentValue, step } = this.data as any;
+      this.setValue(this.add(currentValue, -step));
+    },
+
+    plusValue() {
+      if (this.isDisabled('plus')) {
+        this.triggerEvent('overlimit', { type: 'plus' });
+        return false;
+      }
+      const { currentValue, step } = this.data as any;
+      this.setValue(this.add(currentValue, step));
+    },
+
+    filterIllegalChar(value: string | number) {
+      const v = String(value).replace(/[^0-9.]/g, '');
+      const indexOfDot = v.indexOf('.');
+      if (this.properties.integer && indexOfDot !== -1) {
+        return v.split('.')[0];
+      }
+
+      if (!this.properties.integer && indexOfDot !== -1 && indexOfDot !== v.lastIndexOf('.')) {
+        return v.split('.', 2).join('.');
+      }
+
+      return v;
+    },
+
+    handleFocus(e) {
+      const { value } = e.detail;
+
+      this.triggerEvent('focus', { value });
+    },
+
+    handleInput(e) {
+      const { value } = e.detail;
+      // 允许输入空值
+      if (value === '') {
+        return;
+      }
+
+      const formatted = this.filterIllegalChar(value);
+      this.setData({
+        currentValue: formatted,
+      });
+      this.triggerEvent('input', { value: formatted });
+    },
+
+    handleBlur(e) {
+      const { value: rawValue } = e.detail;
+      const value = this.format(rawValue);
+
+      this.setValue(value);
+      this.triggerEvent('blur', { value });
+    },
+  };
 }

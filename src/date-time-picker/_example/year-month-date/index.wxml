@@ -6,19 +6,23 @@
   data-mode="date"
   bindtap="showPicker"
   class="test"
-  t-class="pannel-item"
+  t-class="panel-item"
 />
 
 <!-- 年月日 -->
 <t-date-time-picker
+  auto-close
   title="选择日期"
   visible="{{dateVisible}}"
   mode="date"
-  defaultValue="{{date}}"
+  default-value="{{date}}"
   format="YYYY-MM-DD"
+  start="{{start}}"
+  end="{{end}}"
+  filter="{{filter}}"
+  popup-props="{{popupProps}}"
   bindchange="onConfirm"
   bindpick="onColumnChange"
   bindcancel="hidePicker"
-  start="{{start}}"
-  end="{{end}}"
+  bindclose="handleClose"
 />

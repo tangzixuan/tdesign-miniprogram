@@ -2,7 +2,7 @@ import { SuperComponent, wxComponent } from '../common/src/index';
 import config from '../common/config';
 import props from './props';
 import { canIUseFormFieldButton } from '../common/version';
-import { setIcon } from '../common/utils';
+import { calcIcon } from '../common/utils';
 import type { TdButtonProps } from './type';
 
 const { prefix } = config;
@@ -28,14 +28,13 @@ export default class Button extends SuperComponent {
   };
 
   observers = {
-    'theme, size, plain, block, shape, disabled, loading'() {
+    'theme, size, plain, block, shape, disabled, loading, variant'() {
       this.setClass();
     },
 
     icon(icon) {
-      const obj = setIcon('icon', icon, '');
       this.setData({
-        ...obj,
+        _icon: calcIcon(icon, ''),
       });
     },
   };
@@ -90,6 +89,9 @@ export default class Button extends SuperComponent {
     },
     chooseavatar(e) {
       this.triggerEvent('chooseavatar', e.detail);
+    },
+    agreeprivacyauthorization(e) {
+      this.triggerEvent('agreeprivacyauthorization', e.detail);
     },
     handleTap(e) {
       if (this.data.disabled || this.data.loading) return;

@@ -1,4 +1,4 @@
-import ActionSheet, { ActionSheetTheme } from 'tdesign-miniprogram/action-sheet/index';
+import { ActionSheet, ActionSheetTheme } from 'tdesign-miniprogram';
 
 Component({
   methods: {
@@ -13,18 +13,22 @@ Component({
           {
             label: '选项一',
             icon: 'app',
+            suffixIcon: 'chevron-right',
           },
           {
             label: '选项二',
             icon: 'app',
+            suffixIcon: 'chevron-right',
           },
           {
             label: '选项三',
             icon: 'app',
+            suffixIcon: 'chevron-right',
           },
           {
             label: '选项四',
             icon: 'app',
+            suffixIcon: 'chevron-right',
           },
         ],
       });

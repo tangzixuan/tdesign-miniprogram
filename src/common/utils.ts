@@ -1,6 +1,11 @@
 import { prefix } from './config';
+import { getWindowInfo, getAppBaseInfo, getDeviceInfo } from './wechat';
 
-const systemInfo = wx.getSystemInfoSync();
+export const systemInfo: WechatMiniprogram.WindowInfo | WechatMiniprogram.SystemInfo = getWindowInfo();
+
+export const appBaseInfo: WechatMiniprogram.AppBaseInfo | WechatMiniprogram.SystemInfo = getAppBaseInfo();
+
+export const deviceInfo: WechatMiniprogram.DeviceInfo | WechatMiniprogram.SystemInfo = getDeviceInfo();
 
 type Context = WechatMiniprogram.Page.TrivialInstance | WechatMiniprogram.Component.TrivialInstance;
 
@@ -84,9 +89,8 @@ export const styles = function (styleObj) {
 };
 
 export const getAnimationFrame = function (context: any, cb: Function) {
-  return wx
+  return context
     .createSelectorQuery()
-    .in(context)
     .selectViewport()
     .boundingClientRect()
     .exec(() => {
@@ -96,8 +100,8 @@ export const getAnimationFrame = function (context: any, cb: Function) {
 
 export const getRect = function (context: any, selector: string, needAll: boolean = false) {
   return new Promise<any>((resolve, reject) => {
-    wx.createSelectorQuery()
-      .in(context)
+    context
+      .createSelectorQuery()
       [needAll ? 'selectAll' : 'select'](selector)
       .boundingClientRect((rect) => {
         if (rect) {
@@ -110,12 +114,22 @@ export const getRect = function (context: any, selector: string, needAll: boolea
   });
 };
 
-const isDef = function (value: any): boolean {
-  return value !== undefined && value !== null;
-};
-
 export const isNumber = function (value) {
   return /^\d+(\.\d+)?$/.test(value);
+};
+
+export const isNull = function (value: any): boolean {
+  return value === null;
+};
+
+export const isUndefined = (value: any): boolean => typeof value === 'undefined';
+
+export const isDef = function (value: any): boolean {
+  return !isUndefined(value) && !isNull(value);
+};
+
+export const isIOS = function (): boolean {
+  return !!(deviceInfo?.system?.toLowerCase().search('ios') + 1);
 };
 
 export const addUnit = function (value?: string | number): string | undefined {
@@ -128,12 +142,14 @@ export const addUnit = function (value?: string | number): string | undefined {
 
 /**
  * 计算字符串字符的长度并可以截取字符串。
- * @param str 传入字符串（maxcharacter条件下，一个汉字表示两个字符）
+ * @param char 传入字符串（maxcharacter条件下，一个汉字表示两个字符）
  * @param max 规定最大字符串长度
  * @returns 当没有传入maxCharacter/maxLength 时返回字符串字符长度，当传入maxCharacter/maxLength时返回截取之后的字符串和长度。
  */
-export const getCharacterLength = (type: string, str: string, max?: number) => {
-  if (!str || str.length === 0) {
+export const getCharacterLength = (type: string, char: string | number, max?: number) => {
+  const str = String(char ?? '');
+
+  if (str.length === 0) {
     return {
       length: 0,
       characters: '',
@@ -192,14 +208,14 @@ export const getInstance = function (context?: Context, selector?: string) {
   return instance;
 };
 
-export const unitConvert = (value: number | string): number => {
+export const unitConvert = (value: number | string | null | undefined): number => {
   if (typeof value === 'string') {
     if (value.includes('rpx')) {
       return (parseInt(value, 10) * (systemInfo?.screenWidth ?? 750)) / 750;
     }
     return parseInt(value, 10);
   }
-  return value;
+  return value ?? 0;
 };
 
 export const setIcon = (iconName, icon, defaultIcon) => {
@@ -246,7 +262,7 @@ export const uniqueFactory = (compName) => {
 };
 
 export const calcIcon = (icon: string | Record<string, any>, defaultIcon?: string) => {
-  if ((isBool(icon) && icon && defaultIcon) || isString(icon)) {
+  if (icon && ((isBool(icon) && defaultIcon) || isString(icon))) {
     return { name: isBool(icon) ? defaultIcon : icon };
   }
   if (isObject(icon)) {
@@ -269,4 +285,14 @@ export const isOverSize = (size, sizeLimit) => {
     typeof sizeLimit === 'number' ? sizeLimit * base : sizeLimit?.size * unitMap[sizeLimit?.unit ?? 'KB']; // 单位 KB
 
   return size > computedSize;
+};
+
+export const rpx2px = (rpx) => Math.floor((systemInfo.windowWidth * rpx) / 750);
+
+export const nextTick = () => {
+  return new Promise<void>((resolve) => {
+    wx.nextTick(() => {
+      resolve();
+    });
+  });
 };

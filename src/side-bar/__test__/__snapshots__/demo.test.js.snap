@@ -3,7 +3,17 @@
 exports[`SideBar SideBar base demo works fine 1`] = `
 <base>
   <wx-view
+    class="custom-navbar"
+  >
+    <t-navbar
+      class="demo-navbar"
+      leftArrow="{{true}}"
+      title="TDesign"
+    />
+  </wx-view>
+  <wx-view
     class="side-bar-wrapper"
+    style="height: calc(100vh - 0px)"
   >
     <t-side-bar
       value="{{1}}"
@@ -63,124 +73,136 @@ exports[`SideBar SideBar base demo works fine 1`] = `
           column="{{3}}"
         >
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
+            tClassImage="image"
+            text="最多六个文字"
           />
         </t-grid>
       </wx-view>
@@ -197,94 +219,103 @@ exports[`SideBar SideBar base demo works fine 1`] = `
           column="{{3}}"
         >
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
+            tClassImage="image"
+            text="最多六个文字"
           />
         </t-grid>
       </wx-view>
@@ -301,94 +332,103 @@ exports[`SideBar SideBar base demo works fine 1`] = `
           column="{{3}}"
         >
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
+            tClassImage="image"
+            text="最多六个文字"
           />
         </t-grid>
       </wx-view>
@@ -405,64 +445,70 @@ exports[`SideBar SideBar base demo works fine 1`] = `
           column="{{3}}"
         >
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
+            tClassImage="image"
+            text="最多六个文字"
           />
         </t-grid>
       </wx-view>
@@ -479,34 +525,37 @@ exports[`SideBar SideBar base demo works fine 1`] = `
           column="{{3}}"
         >
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
-            text="标题文字"
+            tClassImage="image"
+            text="最多六个文字"
           />
         </t-grid>
       </wx-view>
@@ -518,7 +567,17 @@ exports[`SideBar SideBar base demo works fine 1`] = `
 exports[`SideBar SideBar custom demo works fine 1`] = `
 <custom>
   <wx-view
+    class="custom-navbar"
+  >
+    <t-navbar
+      class="demo-navbar"
+      leftArrow="{{true}}"
+      title="TDesign"
+    />
+  </wx-view>
+  <wx-view
     class="side-bar-wrapper"
+    style="height: calc(100vh - 0px)"
   >
     <t-side-bar
       value="{{1}}"
@@ -578,124 +637,136 @@ exports[`SideBar SideBar custom demo works fine 1`] = `
           column="{{3}}"
         >
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
+            tClassImage="image"
+            text="最多六个文字"
           />
         </t-grid>
       </wx-view>
@@ -712,94 +783,103 @@ exports[`SideBar SideBar custom demo works fine 1`] = `
           column="{{3}}"
         >
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
+            tClassImage="image"
+            text="最多六个文字"
           />
         </t-grid>
       </wx-view>
@@ -816,94 +896,103 @@ exports[`SideBar SideBar custom demo works fine 1`] = `
           column="{{3}}"
         >
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
+            tClassImage="image"
+            text="最多六个文字"
           />
         </t-grid>
       </wx-view>
@@ -920,64 +1009,70 @@ exports[`SideBar SideBar custom demo works fine 1`] = `
           column="{{3}}"
         >
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
+            tClassImage="image"
+            text="最多六个文字"
           />
         </t-grid>
       </wx-view>
@@ -994,34 +1089,37 @@ exports[`SideBar SideBar custom demo works fine 1`] = `
           column="{{3}}"
         >
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example1.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example1.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
-            text="标题文字"
+            tClassImage="image"
+            text="最多六个文字"
           />
         </t-grid>
       </wx-view>
@@ -1033,7 +1131,17 @@ exports[`SideBar SideBar custom demo works fine 1`] = `
 exports[`SideBar SideBar switch demo works fine 1`] = `
 <wx-switch>
   <wx-view
+    class="custom-navbar"
+  >
+    <t-navbar
+      class="demo-navbar"
+      leftArrow="{{true}}"
+      title="TDesign"
+    />
+  </wx-view>
+  <wx-view
     class="side-bar-wrapper"
+    style="height: calc(100vh - 0px)"
   >
     <t-side-bar
       value="{{1}}"
@@ -1084,6 +1192,7 @@ exports[`SideBar SideBar switch demo works fine 1`] = `
     >
       <wx-scroll-view
         class="section"
+        scrollTop="{{0}}"
         scrollWithAnimation="{{true}}"
         scrollY="{{true}}"
         showScrollbar="{{false}}"
@@ -1095,134 +1204,146 @@ exports[`SideBar SideBar switch demo works fine 1`] = `
         </wx-view>
         <t-cell-group>
           <t-cell
+            tClassLeft="cell"
             title="标题文字0"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字1"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字2"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字3"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字4"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字5"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字6"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字7"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字8"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字9"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字10"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字11"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
@@ -1230,6 +1351,7 @@ exports[`SideBar SideBar switch demo works fine 1`] = `
       </wx-scroll-view>
       <wx-scroll-view
         class="section"
+        scrollTop="{{0}}"
         scrollWithAnimation="{{true}}"
         scrollY="{{true}}"
         showScrollbar="{{false}}"
@@ -1241,112 +1363,122 @@ exports[`SideBar SideBar switch demo works fine 1`] = `
         </wx-view>
         <t-cell-group>
           <t-cell
+            tClassLeft="cell"
             title="标题文字0"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字1"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字2"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字3"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字4"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字5"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字6"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字7"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字8"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字9"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
@@ -1354,6 +1486,7 @@ exports[`SideBar SideBar switch demo works fine 1`] = `
       </wx-scroll-view>
       <wx-scroll-view
         class="section"
+        scrollTop="{{0}}"
         scrollWithAnimation="{{true}}"
         scrollY="{{true}}"
         showScrollbar="{{false}}"
@@ -1365,68 +1498,74 @@ exports[`SideBar SideBar switch demo works fine 1`] = `
         </wx-view>
         <t-cell-group>
           <t-cell
+            tClassLeft="cell"
             title="标题文字0"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字1"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字2"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字3"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字4"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字5"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
@@ -1434,6 +1573,7 @@ exports[`SideBar SideBar switch demo works fine 1`] = `
       </wx-scroll-view>
       <wx-scroll-view
         class="section"
+        scrollTop="{{0}}"
         scrollWithAnimation="{{true}}"
         scrollY="{{true}}"
         showScrollbar="{{false}}"
@@ -1445,90 +1585,98 @@ exports[`SideBar SideBar switch demo works fine 1`] = `
         </wx-view>
         <t-cell-group>
           <t-cell
+            tClassLeft="cell"
             title="标题文字0"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字1"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字2"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字3"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字4"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字5"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字6"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
           <t-cell
+            tClassLeft="cell"
             title="标题文字7"
           >
             <t-image
               lazy="{{true}}"
               shape="round"
               slot="image"
-              src="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
               tClass="image"
             />
           </t-cell>
@@ -1536,6 +1684,7 @@ exports[`SideBar SideBar switch demo works fine 1`] = `
       </wx-scroll-view>
       <wx-scroll-view
         class="section"
+        scrollTop="{{0}}"
         scrollWithAnimation="{{true}}"
         scrollY="{{true}}"
         showScrollbar="{{false}}"
@@ -1545,7 +1694,104 @@ exports[`SideBar SideBar switch demo works fine 1`] = `
         >
           标题五
         </wx-view>
-        <t-cell-group />
+        <t-cell-group>
+          <t-cell
+            tClassLeft="cell"
+            title="标题文字0"
+          >
+            <t-image
+              lazy="{{true}}"
+              shape="round"
+              slot="image"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
+              tClass="image"
+            />
+          </t-cell>
+          <t-cell
+            tClassLeft="cell"
+            title="标题文字1"
+          >
+            <t-image
+              lazy="{{true}}"
+              shape="round"
+              slot="image"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
+              tClass="image"
+            />
+          </t-cell>
+          <t-cell
+            tClassLeft="cell"
+            title="标题文字2"
+          >
+            <t-image
+              lazy="{{true}}"
+              shape="round"
+              slot="image"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
+              tClass="image"
+            />
+          </t-cell>
+          <t-cell
+            tClassLeft="cell"
+            title="标题文字3"
+          >
+            <t-image
+              lazy="{{true}}"
+              shape="round"
+              slot="image"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
+              tClass="image"
+            />
+          </t-cell>
+          <t-cell
+            tClassLeft="cell"
+            title="标题文字4"
+          >
+            <t-image
+              lazy="{{true}}"
+              shape="round"
+              slot="image"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
+              tClass="image"
+            />
+          </t-cell>
+          <t-cell
+            tClassLeft="cell"
+            title="标题文字5"
+          >
+            <t-image
+              lazy="{{true}}"
+              shape="round"
+              slot="image"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
+              tClass="image"
+            />
+          </t-cell>
+          <t-cell
+            tClassLeft="cell"
+            title="标题文字6"
+          >
+            <t-image
+              lazy="{{true}}"
+              shape="round"
+              slot="image"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
+              tClass="image"
+            />
+          </t-cell>
+          <t-cell
+            tClassLeft="cell"
+            title="标题文字7"
+          >
+            <t-image
+              lazy="{{true}}"
+              shape="round"
+              slot="image"
+              src="https://tdesign.gtimg.com/mobile/demos/example2.png"
+              tClass="image"
+            />
+          </t-cell>
+        </t-cell-group>
       </wx-scroll-view>
     </wx-view>
   </wx-view>
@@ -1555,7 +1801,17 @@ exports[`SideBar SideBar switch demo works fine 1`] = `
 exports[`SideBar SideBar with-icon demo works fine 1`] = `
 <with-icon>
   <wx-view
+    class="custom-navbar"
+  >
+    <t-navbar
+      class="demo-navbar"
+      leftArrow="{{true}}"
+      title="TDesign"
+    />
+  </wx-view>
+  <wx-view
     class="side-bar-wrapper"
+    style="height: calc(100vh - 0px)"
   >
     <t-side-bar
       value="{{1}}"
@@ -1620,124 +1876,136 @@ exports[`SideBar SideBar with-icon demo works fine 1`] = `
           column="{{3}}"
         >
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
+            tClassImage="image"
+            text="最多六个文字"
           />
         </t-grid>
       </wx-view>
@@ -1754,94 +2022,103 @@ exports[`SideBar SideBar with-icon demo works fine 1`] = `
           column="{{3}}"
         >
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
+            tClassImage="image"
+            text="最多六个文字"
           />
         </t-grid>
       </wx-view>
@@ -1858,94 +2135,103 @@ exports[`SideBar SideBar with-icon demo works fine 1`] = `
           column="{{3}}"
         >
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
+            tClassImage="image"
+            text="最多六个文字"
           />
         </t-grid>
       </wx-view>
@@ -1962,64 +2248,70 @@ exports[`SideBar SideBar with-icon demo works fine 1`] = `
           column="{{3}}"
         >
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
+            text="最多六个文字"
+          />
+          <t-grid-item
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
+            imageProps="{{
+              Object {
+                "lazy": true,
+                "shape": "round",
+              }
+            }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
-            text="标题文字"
-          />
-          <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
-            imageProps="{{
-              Object {
-                "lazy": true,
-                "shape": "round",
-              }
-            }}"
-            text="标题文字"
+            tClassImage="image"
+            text="最多六个文字"
           />
         </t-grid>
       </wx-view>
@@ -2036,34 +2328,37 @@ exports[`SideBar SideBar with-icon demo works fine 1`] = `
           column="{{3}}"
         >
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
+            tClassImage="image"
             text="标题文字"
           />
           <t-grid-item
-            image="https://tdesign.gtimg.com/miniprogram/images/example2.png"
+            image="https://tdesign.gtimg.com/mobile/demos/example2.png"
             imageProps="{{
               Object {
                 "lazy": true,
                 "shape": "round",
               }
             }}"
-            text="标题文字"
+            tClassImage="image"
+            text="最多六个文字"
           />
         </t-grid>
       </wx-view>

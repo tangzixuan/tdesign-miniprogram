@@ -16,14 +16,15 @@ exports[`date-time-picker :base 1`] = `
         bind:visible-change="onPopupChange"
       >
         <wx-view
-          ariaModal="{{true}}"
-          ariaRole="dialog"
           class="t-popup t-popup--bottom t-fade-enter t-fade-enter-active class t-class"
           style="z-index:11500;"
           bind:transitionend="onTransitionEnd"
         >
           <wx-view
+            $gdc="{{[Function]}}"
+            $wxs:bind:touchmove="{{[Function]}}"
             class="t-popup__content t-class-content"
+            data-prevention="{{true}}"
           >
             <wx-view
               class="t-picker t-class"
@@ -68,255 +69,348 @@ exports[`date-time-picker :base 1`] = `
                   >
                     <wx-view
                       class="t-picker-item__wrapper"
-                      style="transition: transform 0ms cubic-bezier(0.215, 0.61, 0.355, 1); transform: translate3d(0, -924px, 0)"
+                      style="transition: transform 0ms cubic-bezier(0.215, 0.61, 0.355, 1); transform: translate3d(0, -840px, 0)"
                     >
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{0}}"
+                        style="height: 40px"
                       >
-                        
-      2000年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2000年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{1}}"
+                        style="height: 40px"
                       >
-                        
-      2001年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2001年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{2}}"
+                        style="height: 40px"
                       >
-                        
-      2002年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2002年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{3}}"
+                        style="height: 40px"
                       >
-                        
-      2003年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2003年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{4}}"
+                        style="height: 40px"
                       >
-                        
-      2004年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2004年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{5}}"
+                        style="height: 40px"
                       >
-                        
-      2005年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2005年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{6}}"
+                        style="height: 40px"
                       >
-                        
-      2006年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2006年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{7}}"
+                        style="height: 40px"
                       >
-                        
-      2007年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2007年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{8}}"
+                        style="height: 40px"
                       >
-                        
-      2008年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2008年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{9}}"
+                        style="height: 40px"
                       >
-                        
-      2009年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2009年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{10}}"
+                        style="height: 40px"
                       >
-                        
-      2010年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2010年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{11}}"
+                        style="height: 40px"
                       >
-                        
-      2011年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2011年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{12}}"
+                        style="height: 40px"
                       >
-                        
-      2012年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2012年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{13}}"
+                        style="height: 40px"
                       >
-                        
-      2013年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2013年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{14}}"
+                        style="height: 40px"
                       >
-                        
-      2014年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2014年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{15}}"
+                        style="height: 40px"
                       >
-                        
-      2015年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2015年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{16}}"
+                        style="height: 40px"
                       >
-                        
-      2016年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2016年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{17}}"
+                        style="height: 40px"
                       >
-                        
-      2017年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2017年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{18}}"
+                        style="height: 40px"
                       >
-                        
-      2018年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2018年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{19}}"
+                        style="height: 40px"
                       >
-                        
-      2019年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2019年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{20}}"
+                        style="height: 40px"
                       >
-                        
-      2020年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2020年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item t-picker-item__item--active"
                         data-index="{{21}}"
+                        style="height: 40px"
                       >
-                        
-      2021年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2021年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{22}}"
+                        style="height: 40px"
                       >
-                        
-      2022年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2022年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{23}}"
+                        style="height: 40px"
                       >
-                        
-      2023年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2023年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{24}}"
+                        style="height: 40px"
                       >
-                        
-      2024年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2024年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{25}}"
+                        style="height: 40px"
                       >
-                        
-      2025年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2025年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{26}}"
+                        style="height: 40px"
                       >
-                        
-      2026年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2026年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{27}}"
+                        style="height: 40px"
                       >
-                        
-      2027年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2027年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{28}}"
+                        style="height: 40px"
                       >
-                        
-      2028年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2028年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{29}}"
+                        style="height: 40px"
                       >
-                        
-      2029年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2029年
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{30}}"
+                        style="height: 40px"
                       >
-                        
-      2030年
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2030年
+                        </wx-text>
                       </wx-view>
                     </wx-view>
                   </wx-view>
@@ -335,103 +429,139 @@ exports[`date-time-picker :base 1`] = `
                   >
                     <wx-view
                       class="t-picker-item__wrapper"
-                      style="transition: transform 0ms cubic-bezier(0.215, 0.61, 0.355, 1); transform: translate3d(0, -352px, 0)"
+                      style="transition: transform 0ms cubic-bezier(0.215, 0.61, 0.355, 1); transform: translate3d(0, -320px, 0)"
                     >
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{0}}"
+                        style="height: 40px"
                       >
-                        
-      1月
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          1月
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{1}}"
+                        style="height: 40px"
                       >
-                        
-      2月
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          2月
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{2}}"
+                        style="height: 40px"
                       >
-                        
-      3月
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          3月
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{3}}"
+                        style="height: 40px"
                       >
-                        
-      4月
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          4月
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{4}}"
+                        style="height: 40px"
                       >
-                        
-      5月
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          5月
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{5}}"
+                        style="height: 40px"
                       >
-                        
-      6月
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          6月
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{6}}"
+                        style="height: 40px"
                       >
-                        
-      7月
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          7月
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{7}}"
+                        style="height: 40px"
                       >
-                        
-      8月
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          8月
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item t-picker-item__item--active"
                         data-index="{{8}}"
+                        style="height: 40px"
                       >
-                        
-      9月
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          9月
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{9}}"
+                        style="height: 40px"
                       >
-                        
-      10月
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          10月
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{10}}"
+                        style="height: 40px"
                       >
-                        
-      11月
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          11月
+                        </wx-text>
                       </wx-view>
                       <wx-view
                         class="t-picker-item__item"
                         data-index="{{11}}"
+                        style="height: 40px"
                       >
-                        
-      12月
-    
+                        <wx-text
+                          class="t-picker-item__item-label"
+                        >
+                          12月
+                        </wx-text>
                       </wx-view>
                     </wx-view>
                   </wx-view>
@@ -444,6 +574,7 @@ exports[`date-time-picker :base 1`] = `
                 />
                 <wx-view
                   class="t-picker__indicator"
+                  style="height: 40px"
                 />
               </wx-view>
             </wx-view>
@@ -454,7 +585,6 @@ exports[`date-time-picker :base 1`] = `
           </wx-view>
         </wx-view>
         <t-overlay
-          class="test"
           id="popup-overlay"
           bind:tap="handleOverlayClick"
         >
@@ -462,7 +592,7 @@ exports[`date-time-picker :base 1`] = `
             ariaLabel="关闭"
             ariaRole="button"
             class="t-overlay t-fade-enter t-fade-enter-active class"
-            style="z-index:11000;"
+            style="--td-overlay-transition-duration:300ms; z-index:11000; top:0px;"
             bind:tap="handleClick"
             catch:touchmove="noop"
             bind:transitionend="onTransitionEnd"

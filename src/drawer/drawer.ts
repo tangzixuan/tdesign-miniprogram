@@ -1,12 +1,15 @@
 import { ComponentsOptionsType, SuperComponent, wxComponent } from '../common/src/index';
 import config from '../common/config';
 import props from './props';
+import useCustomNavbar from '../mixins/using-custom-navbar';
 
 const { prefix } = config;
 const name = `${prefix}-drawer`;
 
 @wxComponent()
 export default class Drawer extends SuperComponent {
+  behaviors = [useCustomNavbar];
+
   externalClasses = [];
 
   options: ComponentsOptionsType = {
@@ -41,9 +44,7 @@ export default class Drawer extends SuperComponent {
     itemClick(detail) {
       const { index, item } = detail.currentTarget.dataset;
 
-      this.triggerEvent('item-click', {
-        sibarItem: { index: index, item: item },
-      });
+      this.triggerEvent('item-click', { index, item });
     },
   };
 }

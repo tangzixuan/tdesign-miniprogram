@@ -1,5 +1,7 @@
 Component({
-  options: {
-    styleIsolation: 'apply-shared',
+  methods: {
+    onBack() {
+      wx.navigateBack();
+    },
   },
 });

@@ -56,7 +56,7 @@ exports[`Tabs Tabs base demo works fine 1`] = `
     />
     <t-tab-panel
       label="上限四字"
-      value="2"
+      value="3"
     />
   </t-tabs>
   <t-tabs
@@ -89,7 +89,7 @@ exports[`Tabs Tabs base demo works fine 1`] = `
       value="3"
     />
     <t-tab-panel
-      label="上限三字"
+      label="上限四字"
       value="4"
     />
   </t-tabs>
@@ -241,47 +241,6 @@ exports[`Tabs Tabs theme demo works fine 1`] = `
   />
   <t-tabs
     defaultValue="{{0}}"
-    spaceEvenly="{{false}}"
-    theme="tag"
-  >
-    <t-tab-panel
-      label="选项"
-      value="{{0}}"
-    />
-    <t-tab-panel
-      label="选项"
-      value="{{1}}"
-    />
-    <t-tab-panel
-      label="选项"
-      value="{{2}}"
-    />
-    <t-tab-panel
-      label="选项"
-      value="{{3}}"
-    />
-    <t-tab-panel
-      label="选项"
-      value="{{4}}"
-    />
-    <t-tab-panel
-      label="选项"
-      value="{{5}}"
-    />
-    <t-tab-panel
-      label="选项"
-      value="{{6}}"
-    />
-    <t-tab-panel
-      label="选项"
-      value="{{7}}"
-    />
-  </t-tabs>
-  <wx-view
-    style="height: 16px"
-  />
-  <t-tabs
-    defaultValue="{{0}}"
     theme="card"
   >
     <t-tab-panel
@@ -299,47 +258,6 @@ exports[`Tabs Tabs theme demo works fine 1`] = `
     <t-tab-panel
       label="选项"
       value="{{3}}"
-    />
-  </t-tabs>
-  <wx-view
-    style="height: 16px"
-  />
-  <t-tabs
-    defaultValue="{{0}}"
-    spaceEvenly="{{false}}"
-    theme="card"
-  >
-    <t-tab-panel
-      label="选项"
-      value="{{0}}"
-    />
-    <t-tab-panel
-      label="选项"
-      value="{{1}}"
-    />
-    <t-tab-panel
-      label="选项"
-      value="{{2}}"
-    />
-    <t-tab-panel
-      label="选项"
-      value="{{3}}"
-    />
-    <t-tab-panel
-      label="选项"
-      value="{{4}}"
-    />
-    <t-tab-panel
-      label="选项"
-      value="{{5}}"
-    />
-    <t-tab-panel
-      label="选项"
-      value="{{6}}"
-    />
-    <t-tab-panel
-      label="选项"
-      value="{{7}}"
     />
   </t-tabs>
 </theme>
@@ -355,8 +273,8 @@ exports[`Tabs Tabs with-badge demo works fine 1`] = `
         Object {
           "dot": true,
           "offset": Array [
-            "-10rpx",
-            "4rpx",
+            "4px",
+            "4px",
           ],
         }
       }}"
@@ -368,8 +286,8 @@ exports[`Tabs Tabs with-badge demo works fine 1`] = `
         Object {
           "count": 8,
           "offset": Array [
-            "-16rpx",
-            "8rpx",
+            "8px",
+            "8px",
           ],
         }
       }}"
@@ -387,38 +305,56 @@ exports[`Tabs Tabs with-badge demo works fine 1`] = `
 exports[`Tabs Tabs with-content demo works fine 1`] = `
 <with-content>
   <t-tabs
+    animation="{{
+      Object {
+        "duration": 0.6,
+      }
+    }}"
     defaultValue="{{0}}"
     tClass="custom-tabs"
+    tClassContent="custom-panel"
     bind:change="onTabsChange"
     bind:click="onTabsClick"
   >
     <t-tab-panel
       label="选项一"
-      style="display:flex;justify-content:center;align-items:center;min-height: 120px"
       value="0"
     >
-      选项一内容
+      <wx-view
+        class="custom-panel__content"
+      >
+        选项一内容
+      </wx-view>
     </t-tab-panel>
     <t-tab-panel
       label="选项二"
-      style="display:flex;justify-content:center;align-items:center;min-height: 120px"
       value="1"
     >
-      选项二内容
+      <wx-view
+        class="custom-panel__content"
+      >
+        选项二内容
+      </wx-view>
     </t-tab-panel>
     <t-tab-panel
       label="选项三"
-      style="display:flex;justify-content:center;align-items:center;min-height: 120px"
       value="2"
     >
-      选项三内容
+      <wx-view
+        class="custom-panel__content"
+      >
+        选项三内容
+      </wx-view>
     </t-tab-panel>
     <t-tab-panel
       label="选项四"
-      style="display:flex;justify-content:center;align-items:center;min-height: 120px"
       value="3"
     >
-      选项四内容
+      <wx-view
+        class="custom-panel__content"
+      >
+        选项四内容
+      </wx-view>
     </t-tab-panel>
   </t-tabs>
 </with-content>

@@ -12,7 +12,7 @@
 
 .text {
   font-size: 28rpx;
-  color: rgba(0, 0, 0, .6);
+  color: var(--td-text-color-secondary);
   line-height: 44rpx;
   margin-bottom: 32rpx;
 }

@@ -1,5 +1,5 @@
-import simulate from 'miniprogram-simulate';
 import path from 'path';
+import simulate from 'miniprogram-simulate';
 
 describe('Avatar & Avatar Groups', () => {
   const id = load(path.resolve(__dirname, './index'));
@@ -91,7 +91,7 @@ describe('Avatar & Avatar Groups', () => {
 
       const $group = comp.querySelectorAll('.avatar-group >>> .t-avatar');
       $group.forEach((v) => {
-        expect(v.dom.getAttribute('class').includes('t-avatar--medium')).toBeTruthy();
+        expect(v.dom.getAttribute('class').includes('t-avatar--small')).toBeTruthy();
       });
     });
 

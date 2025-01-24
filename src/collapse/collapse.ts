@@ -10,18 +10,11 @@ export interface CollapseProps extends TdCollapseProps {}
 
 @wxComponent()
 export default class Collapse extends SuperComponent {
-  options = {
-    addGlobalClass: true,
-  };
-
   externalClasses = [`${prefix}-class`];
 
   relations: RelationsOptions = {
     '../collapse-panel/collapse-panel': {
       type: 'descendant',
-      linked() {
-        this.updateExpanded();
-      },
     },
   };
 

@@ -1,5 +1,5 @@
-import simulate from 'miniprogram-simulate';
 import path from 'path';
+import simulate from 'miniprogram-simulate';
 
 describe('icon', () => {
   const icon = load(path.resolve(__dirname, `../icon`));
@@ -26,7 +26,7 @@ describe('icon', () => {
     }
   });
 
-  it(`icon :base`, () => {
+  it(`icon :base`, async () => {
     const id = simulate.load({
       template: `<t-icon class="icon" size="{{size}}"></t-icon>`,
       data: {
@@ -39,11 +39,13 @@ describe('icon', () => {
     const comp = simulate.render(id);
     comp.attach(document.createElement('parent-wrapper'));
 
+    await simulate.sleep(10);
+
     const $icon = comp.querySelector('.icon >>> .t-icon');
     expect($icon.dom.getAttribute('style').includes('font-size: 20px')).toBeTruthy();
   });
 
-  it(`icon :name`, () => {
+  it(`icon :name`, async () => {
     const id = simulate.load({
       template: `<t-icon class="icon" size="{{size}}" name="{{name}}"></t-icon>`,
       data: {
@@ -56,6 +58,8 @@ describe('icon', () => {
     });
     const comp = simulate.render(id);
     comp.attach(document.createElement('parent-wrapper'));
+
+    await simulate.sleep(10);
 
     const $image = comp.querySelector('.icon >>> .t-icon__image');
     expect($image).toBeTruthy();

@@ -3,6 +3,7 @@ import { SuperComponent, wxComponent } from '../common/src/index';
 import config from '../common/config';
 import { ActionSheetTheme, show } from './show';
 import props from './props';
+import useCustomNavbar from '../mixins/using-custom-navbar';
 
 const { prefix } = config;
 const name = `${prefix}-action-sheet`;
@@ -10,6 +11,8 @@ const name = `${prefix}-action-sheet`;
 @wxComponent()
 export default class ActionSheet extends SuperComponent {
   static show = show;
+
+  behaviors = [useCustomNavbar];
 
   externalClasses = [`${prefix}-class`, `${prefix}-class-content`, `${prefix}-class-cancel`];
 
@@ -22,6 +25,8 @@ export default class ActionSheet extends SuperComponent {
     classPrefix: name,
     gridThemeItems: [],
     currentSwiperIndex: 0,
+    defaultPopUpProps: {},
+    defaultPopUpzIndex: 11500,
   };
 
   controlledProps = [
@@ -31,19 +36,24 @@ export default class ActionSheet extends SuperComponent {
     },
   ];
 
-  ready() {
-    this.memoInitialData();
-    this.splitGridThemeActions();
-  }
+  observers = {
+    'visible, items'(visible: boolean) {
+      if (!visible) return;
+      this.init();
+    },
+  };
 
   methods = {
-    onSwiperChange(e: WechatMiniprogram.TouchEvent) {
-      const {
-        detail: { current },
-      } = e;
-      this.setData({
-        currentSwiperIndex: current,
-      });
+    init() {
+      this.memoInitialData();
+      this.splitGridThemeActions();
+    },
+
+    memoInitialData() {
+      this.initialData = {
+        ...this.properties,
+        ...this.data,
+      };
     },
 
     splitGridThemeActions() {
@@ -65,13 +75,6 @@ export default class ActionSheet extends SuperComponent {
       this._trigger('visible-change', { visible: true });
     },
 
-    memoInitialData() {
-      this.initialData = {
-        ...this.properties,
-        ...this.data,
-      };
-    },
-
     /** 指令调用隐藏 */
     close() {
       this.triggerEvent('close', { trigger: 'command' });
@@ -90,21 +93,36 @@ export default class ActionSheet extends SuperComponent {
       }
     },
 
+    onSwiperChange(e: WechatMiniprogram.TouchEvent) {
+      const { current } = e.detail;
+      this.setData({
+        currentSwiperIndex: current,
+      });
+    },
+
     onSelect(event: WechatMiniprogram.TouchEvent) {
       const { currentSwiperIndex, items, gridThemeItems, count, theme } = this.data;
       const { index } = event.currentTarget.dataset;
       const isSwiperMode = theme === ActionSheetTheme.Grid;
       const item = isSwiperMode ? gridThemeItems[currentSwiperIndex][index] : items[index];
       const realIndex = isSwiperMode ? index + currentSwiperIndex * count : index;
+
       if (item) {
         this.triggerEvent('selected', { selected: item, index: realIndex });
-        this.triggerEvent('close', { trigger: 'select' });
-        this._trigger('visible-change', { visible: false });
+
+        if (!item.disabled) {
+          this.triggerEvent('close', { trigger: 'select' });
+          this._trigger('visible-change', { visible: false });
+        }
       }
     },
 
     onCancel() {
       this.triggerEvent('cancel');
+      if (this.autoClose) {
+        this.setData({ visible: false });
+        this.autoClose = false;
+      }
     },
   };
 }

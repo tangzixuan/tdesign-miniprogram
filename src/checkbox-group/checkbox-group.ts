@@ -20,13 +20,7 @@ export default class CheckBoxGroup extends SuperComponent {
     checkboxOptions: [],
   };
 
-  properties = {
-    ...props,
-    borderless: {
-      type: Boolean,
-      value: false,
-    },
-  };
+  properties = props;
 
   observers = {
     value() {
@@ -34,6 +28,15 @@ export default class CheckBoxGroup extends SuperComponent {
     },
     options() {
       this.initWithOptions();
+    },
+    disabled(v) {
+      if (this.data.options?.length) {
+        this.initWithOptions();
+        return;
+      }
+      this.getChildren().forEach((item) => {
+        item.setDisabled(v);
+      });
     },
   };
 
@@ -53,7 +56,7 @@ export default class CheckBoxGroup extends SuperComponent {
   $checkAll = null; // 全选复选框
 
   methods = {
-    getChilds() {
+    getChildren() {
       let items = this.$children;
       if (!items.length) {
         items = this.selectAllComponents(`.${prefix}-checkbox-option`);
@@ -62,7 +65,7 @@ export default class CheckBoxGroup extends SuperComponent {
     },
 
     updateChildren() {
-      const items = this.getChilds();
+      const items = this.getChildren();
       const { value } = this.data;
 
       if (items.length > 0) {
@@ -79,17 +82,17 @@ export default class CheckBoxGroup extends SuperComponent {
       }
     },
 
-    updateValue({ value, checked, checkAll, indeterminate }) {
+    updateValue({ value, checked, checkAll, item, indeterminate }) {
       let { value: newValue } = this.data;
       const { max } = this.data;
-      const keySet = new Set(this.getChilds().map((item) => item.data.value));
+      const keySet = new Set(this.getChildren().map((item) => item.data.value));
 
       newValue = newValue.filter((value) => keySet.has(value));
 
       if (max && checked && newValue.length === max) return;
 
       if (checkAll) {
-        const items = this.getChilds();
+        const items = this.getChildren();
         newValue =
           !checked && indeterminate
             ? items
@@ -106,15 +109,15 @@ export default class CheckBoxGroup extends SuperComponent {
       } else if (checked) {
         newValue = newValue.concat(value);
       } else {
-        const index = newValue.findIndex((v: string) => v === value);
+        const index = newValue.findIndex((v: string | number) => v === value);
         newValue.splice(index, 1);
       }
 
-      this._trigger('change', { value: newValue });
+      this._trigger('change', { value: newValue, context: item });
     },
 
     initWithOptions() {
-      const { options, value } = this.data;
+      const { options, value, keys } = this.data;
 
       if (!options?.length || !Array.isArray(options)) return;
 
@@ -126,7 +129,12 @@ export default class CheckBoxGroup extends SuperComponent {
               value: item,
               checked: value?.includes(item),
             }
-          : { ...item, checked: value?.includes(item.value) };
+          : {
+              ...item,
+              label: item[keys?.label ?? 'label'],
+              value: item[keys?.value ?? 'value'],
+              checked: value?.includes(item[keys?.value ?? 'value']),
+            };
       });
 
       this.setData({
@@ -143,11 +151,11 @@ export default class CheckBoxGroup extends SuperComponent {
         rect.indeterminate = this.$checkAll?.data.indeterminate;
       }
 
-      this.updateValue({ ...item, checked, ...rect });
+      this.updateValue({ ...item, checked, item, ...rect });
     },
 
     setCheckall() {
-      const items = this.getChilds();
+      const items = this.getChildren();
 
       if (!this.$checkAll) {
         this.$checkAll = items.find((item) => item.data.checkAll);
@@ -156,7 +164,7 @@ export default class CheckBoxGroup extends SuperComponent {
       if (!this.$checkAll) return;
 
       const { value } = this.data;
-      const valueSet = new Set(value.filter((val) => val !== this.$checkAll.data.value));
+      const valueSet = new Set(value?.filter((val) => val !== this.$checkAll.data.value));
       const isCheckall = items.every((item) => (item.data.checkAll ? true : valueSet.has(item.data.value)));
 
       this.$checkAll.setData({

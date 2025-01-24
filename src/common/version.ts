@@ -1,14 +1,16 @@
+import { getAppBaseInfo } from './wechat';
+
 // 获取系统信息
-let systemInfo: WechatMiniprogram.SystemInfo;
+let systemInfo: WechatMiniprogram.AppBaseInfo | WechatMiniprogram.SystemInfo;
 function getSystemInfo() {
   if (systemInfo == null) {
-    systemInfo = wx.getSystemInfoSync();
+    systemInfo = getAppBaseInfo();
   }
   return systemInfo;
 }
 
 // 版本号比较, 参考：https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html
-function compareVersion(v1, v2) {
+export function compareVersion(v1, v2) {
   v1 = v1.split('.');
   v2 = v2.split('.');
   const len = Math.max(v1.length, v2.length);
@@ -40,10 +42,13 @@ function judgeByVersion(version: string) {
 }
 
 export function canIUseFormFieldButton() {
-  const version: string = '2.10.3';
-  return judgeByVersion(version);
+  return judgeByVersion('2.10.3');
 }
 
 export function canUseVirtualHost() {
+  return judgeByVersion('2.19.2');
+}
+
+export function canUseProxyScrollView() {
   return judgeByVersion('2.19.2');
 }

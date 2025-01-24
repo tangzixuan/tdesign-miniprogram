@@ -17,13 +17,9 @@ exports[`input props : clearable && label && suffix 1`] = `
       />
       <wx-view
         ariaHidden="{{true}}"
-        class="t-input__label"
+        class="t-input__label t-class-label"
       >
-        <wx-text
-          class="t-class-label"
-        >
-          tdesign
-        </wx-text>
+        tdesign
       </wx-view>
     </wx-view>
     <wx-view
@@ -43,8 +39,9 @@ exports[`input props : clearable && label && suffix 1`] = `
           confirmHold="{{false}}"
           confirmType="done"
           cursor="{{0}}"
+          cursorColor="#0052d9"
           cursorSpacing="{{0}}"
-          disabled="{{false}}"
+          disabled="{{null}}"
           focus="{{false}}"
           holdKeyboard="{{false}}"
           maxlength="{{-1}}"
@@ -71,10 +68,9 @@ exports[`input props : clearable && label && suffix 1`] = `
         />
         <wx-view
           class="t-input__wrap--clearable-icon"
-          bind:touchstart="clearInput"
+          bind:tap="clearInput"
         >
           <t-icon
-            class=""
             tClass="t-class-clearable"
             bind:click=""
           >
@@ -105,7 +101,6 @@ exports[`input props : clearable && label && suffix 1`] = `
           bind:tap="onSuffixIconClick"
         >
           <t-icon
-            class=""
             tClass="t-class-suffix-icon"
             bind:click=""
           >
@@ -146,7 +141,7 @@ exports[`input slots : label 1`] = `
       />
       <wx-view
         ariaHidden="{{true}}"
-        class="t-input__label"
+        class="t-input__label t-class-label"
       >
         <wx-text
           slot="label"
@@ -177,8 +172,9 @@ exports[`input slots : label 1`] = `
           confirmHold="{{false}}"
           confirmType="done"
           cursor="{{0}}"
+          cursorColor="#0052d9"
           cursorSpacing="{{0}}"
-          disabled="{{false}}"
+          disabled="{{null}}"
           focus="{{false}}"
           holdKeyboard="{{false}}"
           maxlength="{{-1}}"

@@ -1,5 +1,4 @@
 import { getDateRect, isSameDate, getMonthDateRect, isValidDate, getDate } from '../date';
-
 import type { TDate, TDateType, TCalendarType, TCalendarValue } from './type';
 
 export default class TCalendar {
@@ -10,7 +9,7 @@ export default class TCalendar {
   maxDate: Date;
   format: (day: TDate) => TDate;
 
-  constructor(options) {
+  constructor(options = {}) {
     Object.assign(this, options);
 
     if (!this.minDate) this.minDate = getDate();
@@ -35,13 +34,12 @@ export default class TCalendar {
     }
   }
 
-  getDays() {
-    const raw = '日一二三四五六';
+  getDays(weekdays: string[]) {
     const ans = [];
     let i = this.firstDayOfWeek % 7;
 
     while (ans.length < 7) {
-      ans.push(raw[i]);
+      ans.push(weekdays[i]);
       i = (i + 1) % 7;
     }
 

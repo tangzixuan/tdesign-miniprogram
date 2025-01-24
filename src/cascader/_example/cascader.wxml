@@ -1,7 +1,6 @@
+<t-navbar title="Cascader" leftArrow />
 <view class="demo">
-  <view class="demo-title">Cascader 级联选择器</view>
-  <view class="demo-desc">用于多层级数据的逐级选择。</view>
-
+  <t-demo-header title="Cascader 级联选择器" desc="用于多层级数据的逐级选择。" notice="渲染框架支持情况：WebView" />
   <t-demo title="01 类型" desc="">
     <base />
   </t-demo>
@@ -19,5 +18,9 @@
 
   <t-demo desc="使用次级标题">
     <with-title />
+  </t-demo>
+
+  <t-demo desc="选择任意一项">
+    <check-strictly />
   </t-demo>
 </view>

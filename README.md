@@ -13,7 +13,7 @@
     <img src="https://img.shields.io/npm/v/tdesign-miniprogram.svg?sanitize=true" alt="Version">
   </a>
   <a href="https://www.npmjs.com/package/tdesign-miniprogram">
-    <img src="https://img.shields.io/npm/dw/tdesign-miniprogram" alt="Downloads">
+    <img src="https://img.shields.io/npm/dm/tdesign-miniprogram" alt="Downloads">
   </a>
 </p>
 
@@ -68,6 +68,18 @@ npm run dev
 ## 基础库版本
 
 最低基础库版本`^2.6.5`
+
+## 贡献成员
+
+<a href="https://github.com/tencent/tdesign-miniprogram/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=tencent/tdesign-miniprogram" />
+</a>
+
+## 反馈
+
+有任何问题，建议通过 [Github issues](https://github.com/Tencent/tdesign-miniprogram/issues) 反馈或扫码加入用户微信群。
+
+<img src="https://raw.githubusercontent.com/Tencent/tdesign/main/packages/components/src/images/groups/wx-group.png" width="200" />
 
 ## 开源协议
 

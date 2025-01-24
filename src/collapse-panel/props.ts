@@ -12,12 +12,12 @@ const props: TdCollapsePanelProps = {
   },
   /** 禁止当前面板展开，优先级大于 Collapse 的同名属性 */
   disabled: {
-    type: Boolean,
+    type: null,
     value: undefined,
   },
   /** 当前折叠面板展开图标，优先级大于 Collapse 的同名属性 */
   expandIcon: {
-    type: Boolean,
+    type: null,
     value: undefined,
   },
   /** 组件类名，用于组件外层元素、标题、内容 */
@@ -26,6 +26,10 @@ const props: TdCollapsePanelProps = {
   },
   /** 面板头内容 */
   header: {
+    type: String,
+  },
+  /** 面板头左侧图标 */
+  headerLeftIcon: {
     type: String,
   },
   /** 面板头的右侧区域，一般用于呈现面板操作 */

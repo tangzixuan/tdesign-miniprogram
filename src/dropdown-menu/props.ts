@@ -6,6 +6,11 @@
 
 import { TdDropdownMenuProps } from './type';
 const props: TdDropdownMenuProps = {
+  /** 自定义箭头图标 */
+  arrowIcon: {
+    type: null,
+    value: 'caret-down-small',
+  },
   /** 是否在点击遮罩层后关闭菜单 */
   closeOnClickOverlay: {
     type: Boolean,
@@ -15,10 +20,6 @@ const props: TdDropdownMenuProps = {
   duration: {
     type: null,
     value: 200,
-  },
-  /** 组件类名，分别用于设置 组件外层类名、菜单标签、菜单图标类名 等 */
-  externalClasses: {
-    type: Array,
   },
   /** 是否显示遮罩层 */
   showOverlay: {
