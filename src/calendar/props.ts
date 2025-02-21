@@ -11,14 +11,9 @@ const props: TdCalendarProps = {
     type: Boolean,
     value: true,
   },
-  /** 确认按钮。值为 null 则不显示确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。 */
+  /** 确认按钮。值为 null 则不显示确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性 */
   confirmBtn: {
     type: null,
-    value: '',
-  },
-  /** 自定义组件样式 */
-  style: {
-    type: String,
     value: '',
   },
   /** 第一天从星期几开始，默认 0 = 周日 */
@@ -30,6 +25,10 @@ const props: TdCalendarProps = {
   format: {
     type: null,
   },
+  /** 国际化文案 */
+  localeText: {
+    type: Object,
+  },
   /** 最大可选的日期，不传则默认半年后 */
   maxDate: {
     type: Number,
@@ -37,6 +36,11 @@ const props: TdCalendarProps = {
   /** 最小可选的日期，不传则默认今天 */
   minDate: {
     type: Number,
+  },
+  /** 切换模式。 `none` 表示水平方向平铺展示所有月份； `month` 表示支持按月切换， `year-month` 表示既按年切换，也支持按月切换 */
+  switchMode: {
+    type: String,
+    value: 'none',
   },
   /** 标题，不传默认为“请选择日期” */
   title: {
@@ -52,12 +56,17 @@ const props: TdCalendarProps = {
     type: Boolean,
     value: true,
   },
-  /** 当前选择的日期，不传则默认今天，当 type = multiple 或 range 时传入数组 */
+  /** 是否使用了自定义导航栏 */
+  usingCustomNavbar: {
+    type: Boolean,
+    value: false,
+  },
+  /** 当前选择的日期，不传则选用 minDate 属性值或今天，优先级：minDate > today。当 type = multiple 或 range 时传入数组 */
   value: {
     type: null,
     value: null,
   },
-  /** 当前选择的日期，不传则默认今天，当 type = multiple 或 range 时传入数组，非受控属性 */
+  /** 当前选择的日期，不传则选用 minDate 属性值或今天，优先级：minDate > today。当 type = multiple 或 range 时传入数组，非受控属性 */
   defaultValue: {
     type: null,
   },

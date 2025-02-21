@@ -25,9 +25,10 @@ exports[`Input Input banner demo works fine 1`] = `
     class="input-example"
   >
     <t-input
+      borderless="{{true}}"
       label="标签文字"
       placeholder="请输入文字"
-      style="border-radius: 12rpx;"
+      style="border-radius: 18rpx;"
     />
   </wx-view>
 </banner>
@@ -40,16 +41,17 @@ exports[`Input Input base demo works fine 1`] = `
     placeholder="请输入文字"
   />
   <t-input
-    label="标签文字"
-    placeholder="请输入文字(选填)"
-  />
+    placeholder="请输入文字"
+  >
+    <wx-view
+      class="custom-label"
+      slot="label"
+    >
+       标签文字 
+    </wx-view>
+  </t-input>
   <t-input
     placeholder="请输入文字"
-  />
-  <t-input
-    label="标签文字"
-    placeholder="请输入文字"
-    tips="辅助说明"
   />
 </base>
 `;
@@ -67,11 +69,11 @@ exports[`Input Input bordered demo works fine 1`] = `
     <t-input
       borderless="{{true}}"
       placeholder="请输入文字"
-      style="border: 2rpx solid rgba(220,220,220,1);border-radius: 12rpx;"
+      style="border: 2rpx solid var(--td-component-border);border-radius: 12rpx;"
       suffixIcon="{{
         Object {
           "ariaLabel": "提示",
-          "name": "error-circle-filled",
+          "name": "info-circle-filled",
         }
       }}"
     />
@@ -110,7 +112,7 @@ exports[`Input Input layout demo works fine 1`] = `
     suffixIcon="{{
       Object {
         "ariaLabel": "提示",
-        "name": "error-circle-filled",
+        "name": "info-circle-filled",
       }
     }}"
   />
@@ -120,12 +122,14 @@ exports[`Input Input layout demo works fine 1`] = `
 exports[`Input Input maxlength demo works fine 1`] = `
 <maxlength>
   <t-input
+    class="custom-class"
     label="标签文字"
     maxlength="{{10}}"
     placeholder="请输入文字"
     tips="最大输入10个字符"
   />
   <t-input
+    class="custom-class"
     label="标签文字"
     maxcharacter="{{10}}"
     placeholder="请输入文字"
@@ -148,25 +152,16 @@ exports[`Input Input prefix demo works fine 1`] = `
 </prefix>
 `;
 
-exports[`Input Input size demo works fine 1`] = `
-<size>
-  <t-input
-    label="小规格H48"
-    placeholder="请输入文字"
-    size="small"
-  />
-  <t-input
-    label="中规格H56"
-    placeholder="请输入文字"
-  />
-</size>
-`;
-
 exports[`Input Input special demo works fine 1`] = `
 <special>
   <t-input
-    clearable="{{true}}"
     label="输入密码"
+    suffixIcon="{{
+      Object {
+        "ariaLabel": "密码",
+        "name": "browse-off",
+      }
+    }}"
     type="password"
     value="123456"
   />
@@ -215,6 +210,7 @@ exports[`Input Input special demo works fine 1`] = `
   </t-input>
   <t-input
     align="right"
+    format="{{[Function]}}"
     label="价格"
     placeholder="0.00"
     suffix="元"
@@ -236,16 +232,29 @@ exports[`Input Input special demo works fine 1`] = `
 exports[`Input Input status demo works fine 1`] = `
 <status>
   <t-input
+    class="custom-class"
+    clearable="{{
+      Object {
+        "ariaLabel": "通讯录",
+        "color": "#D54941",
+        "name": "close",
+      }
+    }}"
     label="标签文字"
     placeholder="请输入文字"
     status="error"
-    tips="辅助说明"
-    value="已输入文字"
+    tips="错误提示"
+    value="已输入内容"
   />
   <t-input
     disabled="{{true}}"
     label="标签文字"
     value="不可编辑文字"
+  />
+  <t-input
+    label="标签文字"
+    readonly="{{true}}"
+    value="只读模式"
   />
 </status>
 `;
@@ -258,14 +267,14 @@ exports[`Input Input suffix demo works fine 1`] = `
     suffixIcon="{{
       Object {
         "ariaLabel": "提示",
-        "name": "error-circle-filled",
+        "name": "info-circle-filled",
       }
     }}"
     bind:click="click"
   />
   <t-input
     label="标签文字"
-    placeholder="请输入手机号码"
+    placeholder="请输入文字"
   >
     <t-button
       size="extra-small"

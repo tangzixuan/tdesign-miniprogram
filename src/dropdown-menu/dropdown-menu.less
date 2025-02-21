@@ -1,20 +1,26 @@
 @import '../common/style/index.less';
 
-@dropdown-menu-bg-color: var(--td-dropdown-menu-bg-colorm, @bg-color-container);
-@dropdown-menu-color: var(--td-dropdown-menu-colorm, @font-gray-1);
-@dropdown-menu-active-color: var(--td-dropdown-menu-active-colorm, @brand-color);
-@dropdown-menu-disabled-color: var(--td-dropdown-menu-disabled-colorm, @font-gray-4);
-@dropdown-menu-font-size: var(--td-dropdown-menu-font-sizem, 28rpx);
-@dropdown-menu-icon-size: var(--td-dropdown-menu-icon-sizem, 48rpx);
+@dropdown-menu-height: var(--td-dropdown-menu-height, 96rpx);
+@dropdown-menu-bg-color: var(--td-dropdown-menu-bg-color, @bg-color-container);
+@dropdown-menu-color: var(--td-dropdown-menu-color, @text-color-primary);
+@dropdown-menu-active-color: var(--td-dropdown-menu-active-color, @brand-color);
+@dropdown-menu-disabled-color: var(--td-dropdown-menu-disabled-color, @text-color-disabled);
+@dropdown-menu-font-size: var(--td-dropdown-menu-font-size, 28rpx);
+@dropdown-menu-icon-size: var(--td-dropdown-menu-icon-size, 40rpx);
+@dropdown-menu-border-width: var(--td-dropdown-menu-border-width, 1px);
 
 @dropdownMenu: ~'@{prefix}-dropdown-menu';
 
 .@{dropdownMenu} {
   position: relative;
   display: flex;
-  height: 48px;
+  height: @dropdown-menu-height;
   background: @dropdown-menu-bg-color;
   .border(bottom);
+
+  &:after {
+    height: @dropdown-menu-border-width;
+  }
 
   &__item {
     display: flex;
@@ -37,10 +43,16 @@
 
   &__icon {
     font-size: @dropdown-menu-icon-size;
+    padding: 4rpx;
+    box-sizing: border-box;
     transition: transform 240ms ease;
 
     &--active {
       transform: rotate(180deg);
+    }
+
+    &:not(:empty) {
+      margin-left: 8rpx;
     }
   }
 

@@ -31,14 +31,14 @@ export default class Textarea extends SuperComponent {
 
   observers = {
     value(val) {
-      this.updateCount(val);
+      this.updateCount(val ?? this.properties.defaultValue);
     },
   };
 
   lifetimes = {
     ready() {
-      const { value } = this.properties;
-      this.updateValue(value == null ? '' : value);
+      const { value, defaultValue } = this.properties;
+      this.updateValue(value ?? defaultValue ?? '');
     },
   };
 
@@ -61,15 +61,20 @@ export default class Textarea extends SuperComponent {
     },
 
     calculateValue(value, maxcharacter, maxlength) {
+      const { allowInputOverMax } = this.properties;
       if (maxcharacter > 0 && !Number.isNaN(maxcharacter)) {
-        const { length, characters } = getCharacterLength('maxcharacter', value, maxcharacter);
+        const { length, characters } = getCharacterLength(
+          'maxcharacter',
+          value,
+          allowInputOverMax ? Infinity : maxcharacter,
+        );
         return {
           value: characters,
           count: length,
         };
       }
       if (maxlength > 0 && !Number.isNaN(maxlength)) {
-        const { length, characters } = getCharacterLength('maxlength', value, maxlength);
+        const { length, characters } = getCharacterLength('maxlength', value, allowInputOverMax ? Infinity : maxlength);
         return {
           value: characters,
           count: length,
@@ -82,9 +87,9 @@ export default class Textarea extends SuperComponent {
     },
 
     onInput(event) {
-      const { value } = event.detail;
+      const { value, cursor } = event.detail;
       this.updateValue(value);
-      this.triggerEvent('change', { value: this.data.value });
+      this.triggerEvent('change', { value: this.data.value, cursor });
     },
     onFocus(event) {
       this.triggerEvent('focus', {

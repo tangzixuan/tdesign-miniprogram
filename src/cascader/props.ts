@@ -6,6 +6,11 @@
 
 import { TdCascaderProps } from './type';
 const props: TdCascaderProps = {
+  /** 父子节点选中状态不再关联，可各自选中或取消 */
+  checkStrictly: {
+    type: Boolean,
+    value: false,
+  },
   /** 关闭按钮 */
   closeBtn: {
     type: Boolean,
@@ -19,6 +24,11 @@ const props: TdCascaderProps = {
   options: {
     type: Array,
     value: [],
+  },
+  /** 未选中时的提示文案 */
+  placeholder: {
+    type: String,
+    value: '选择选项',
   },
   /** 每级展示的次标题 */
   subTitles: {

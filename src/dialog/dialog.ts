@@ -2,15 +2,17 @@ import { SuperComponent, wxComponent } from '../common/src/index';
 import config from '../common/config';
 import props from './props';
 import { isObject, toCamel } from '../common/utils';
+import useCustomNavbar from '../mixins/using-custom-navbar';
 
 const { prefix } = config;
 const name = `${prefix}-dialog`;
 
 @wxComponent()
 export default class Dialog extends SuperComponent {
+  behaviors = [useCustomNavbar];
+
   options = {
     multipleSlots: true, // 在组件定义时的选项中启用多slot支持
-    addGlobalClass: true,
   };
 
   externalClasses = [
@@ -52,9 +54,10 @@ export default class Dialog extends SuperComponent {
         const btn = buttonMap[key];
         const base: Record<string, any> = {
           block: true,
-          class: [...cls, `${classPrefix}__button--${key}`],
-          externalClass: [...externalCls, `${prefix}-class-${key}`],
+          rootClass: [...cls, `${classPrefix}__button--${key}`],
+          tClass: [...externalCls, `${prefix}-class-${key}`],
           variant: rect.buttonVariant,
+          openType: '',
         };
 
         if (key === 'cancel' && rect.buttonVariant === 'base') {
@@ -65,6 +68,8 @@ export default class Dialog extends SuperComponent {
           rect[`_${key}`] = { ...base, content: btn };
         } else if (btn && typeof btn === 'object') {
           rect[`_${key}`] = { ...base, ...btn };
+        } else {
+          rect[`_${key}`] = null;
         }
       });
 
@@ -91,13 +96,13 @@ export default class Dialog extends SuperComponent {
         }
       }
 
-      const hasOpenType = 'openType' in button;
+      const hasOpenType = !!button.openType;
       if (!hasOpenType && ['confirm', 'cancel'].includes(type)) {
         this[toCamel(`on-${type}`)]?.(type);
       }
 
       if (evtType !== 'tap') {
-        const success = e.detail?.errMsg.indexOf('ok') > -1;
+        const success = e.detail?.errMsg?.indexOf('ok') > -1;
         this.triggerEvent(success ? 'open-type-event' : 'open-type-error-event', e.detail);
       }
     },
@@ -132,6 +137,7 @@ export default class Dialog extends SuperComponent {
     overlayClick() {
       if (this.properties.closeOnOverlayClick) {
         this.triggerEvent('close', { trigger: 'overlay' });
+        this.close();
       }
       this.triggerEvent('overlay-click');
     },

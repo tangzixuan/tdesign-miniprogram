@@ -19,11 +19,12 @@ export default class RadioGroup extends SuperComponent {
     '../radio/radio': {
       type: 'descendant',
       linked(target) {
-        const { value, disabled } = this.data;
+        const { value, disabled, readonly } = this.data;
         target.setData({
           checked: value === target.data.value,
         });
         target.setDisabled(disabled);
+        target.setReadonly(readonly);
       },
     },
   };
@@ -39,7 +40,7 @@ export default class RadioGroup extends SuperComponent {
 
   observers = {
     value(v) {
-      this.getChilds().forEach((item) => {
+      this.getChildren().forEach((item) => {
         item.setData({
           checked: v === item.data.value,
         });
@@ -48,10 +49,19 @@ export default class RadioGroup extends SuperComponent {
     options() {
       this.initWithOptions();
     },
+    disabled(v) {
+      if (this.data.options?.length) {
+        this.initWithOptions();
+        return;
+      }
+      this.getChildren().forEach((item) => {
+        item.setDisabled(v);
+      });
+    },
   };
 
   methods = {
-    getChilds() {
+    getChildren() {
       let items = this.$children;
 
       if (!items?.length) {
@@ -65,14 +75,15 @@ export default class RadioGroup extends SuperComponent {
     },
 
     handleRadioChange(e) {
-      const { value, index } = e.target.dataset;
+      const { checked } = e.detail;
+      const { value, index, allowUncheck } = e.target.dataset;
 
-      this._trigger('change', { value, index });
+      this._trigger('change', checked === false && allowUncheck ? { value: null, index } : { value, index });
     },
 
     // 支持自定义options
     initWithOptions() {
-      const { options, value, keys } = this.data;
+      const { options, value, keys, disabled, readonly } = this.data;
       // 数字数组｜字符串数组｜对像数组
       if (!options?.length || !Array.isArray(options)) {
         this.setData({
@@ -89,6 +100,8 @@ export default class RadioGroup extends SuperComponent {
               label: `${element}`,
               value: element,
               checked: value === element,
+              disabled,
+              readonly,
             });
           } else if (typeName === 'object') {
             optionsValue.push({
@@ -96,6 +109,8 @@ export default class RadioGroup extends SuperComponent {
               label: element[keys?.label ?? 'label'],
               value: element[keys?.value ?? 'value'],
               checked: value === element[keys?.value ?? 'value'],
+              disabled: element.disabled || disabled,
+              readonly: element.readonly || readonly,
             });
           }
         });

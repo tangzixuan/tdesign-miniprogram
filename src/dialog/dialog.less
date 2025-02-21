@@ -5,40 +5,53 @@
 
 // size
 @dialog-width: var(--td-dialog-width, 622rpx);
+@dialog-border-radius: var(--td-dialog-border-radius, @radius-extra-large);
 @dialog-body-max-height: var(--td-dialog-body-max-height, 912rpx);
 
 // color
 @dialog-title-font-size: var(--td-dialog-title-font-size, 36rpx);
-@dialog-title-color: var(--td-dialog-title-color, @font-gray-1);
+@dialog-title-color: var(--td-dialog-title-color, @text-color-primary);
 @dialog-title-line-height: var(--td-dialog-title-line-height, 52rpx);
 
 @dialog-content-font-size: var(--td-dialog-content-font-size, 32rpx);
-@dialog-content-color: var(--td-dialog-content-color, @font-gray-2);
+@dialog-content-color: var(--td-dialog-content-color, @text-color-secondary);
 @dialog-content-line-height: var(--td-dialog-content-line-height, 48rpx);
 
-@dialog-close-color: var(--td-dialog-close-color, @font-gray-3);
+@dialog-close-color: var(--td-dialog-close-color, @text-color-placeholder);
 
 .@{dialog} {
   overflow: hidden;
   width: @dialog-width;
-  border-radius: @radius-default;
+  border-radius: @dialog-border-radius;
   background-color: @bg-color-container;
+
+  &__wrapper {
+    --td-popup-border-radius: @dialog-border-radius;
+  }
 
   &__close-btn {
     position: absolute;
-    top: 16rpx;
-    right: 16rpx;
+    top: @spacer;
+    right: @spacer;
     color: @dialog-close-color;
+    z-index: 1; /* skyline适配新增 */
   }
 
   &__content {
-    padding: @spacer-4 @spacer-3 0;
+    padding-top: @spacer-3;
+    padding-right: @spacer-3;
+    padding-bottom: 0;
+    padding-left: @spacer-3;
     max-height: @dialog-body-max-height;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-size: @font-size-m;
+
+    &:empty {
+      display: none;
+    }
   }
 
   &__header {
@@ -50,7 +63,7 @@
   }
 
   &__header + &__body {
-    margin-top: 16rpx;
+    margin-top: @spacer;
   }
 
   &__body {
@@ -76,7 +89,7 @@
 
   &__footer {
     display: flex;
-    padding: 48rpx;
+    padding: @spacer-3;
 
     &--column {
       flex-flow: column-reverse;
@@ -87,7 +100,7 @@
     }
 
     &--full {
-      padding: 64rpx 0 0;
+      padding: @spacer-4 0 0;
     }
   }
 
@@ -99,11 +112,11 @@
     white-space: nowrap;
 
     &--horizontal + &--horizontal {
-      margin-left: 24rpx;
+      margin-left: @spacer-1;
     }
 
     &--vertical + &--vertical {
-      margin-bottom: 24rpx;
+      margin-bottom: @spacer-1;
     }
 
     &--text {
@@ -118,8 +131,8 @@
         box-sizing: border-box;
         top: 0;
         left: 0;
-        border-top: 1px solid @border-color;
-        border-left: 1px solid @border-color;
+        border-top: 1px solid @border-level-1-color;
+        border-left: 1px solid @border-level-1-color;
         transform: scale(0.5);
         transform-origin: 0 0;
         width: 200%;

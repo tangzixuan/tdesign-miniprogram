@@ -1,5 +1,5 @@
-import simulate from 'miniprogram-simulate';
 import path from 'path';
+import simulate from 'miniprogram-simulate';
 
 describe('input', () => {
   const input = load(path.resolve(__dirname, `../input`), 't-input');
@@ -190,7 +190,7 @@ describe('input', () => {
       comp.attach(document.createElement('parent-wrapper'));
 
       const clearable = comp.querySelector('.base >>> .t-input__wrap--clearable-icon');
-      clearable.dispatchEvent('touchstart');
+      clearable.dispatchEvent('tap');
       await simulate.sleep(0);
       expect(handleClear.mock.calls[0][0].detail).toStrictEqual({});
     });

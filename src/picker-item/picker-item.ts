@@ -1,16 +1,11 @@
-import { SuperComponent, wxComponent, RelationsOptions } from '../common/src/index';
+import { SuperComponent, wxComponent, RelationsOptions, ComponentsOptionsType } from '../common/src/index';
 import config from '../common/config';
 import props from './props';
 
 const { prefix } = config;
 const name = `${prefix}-picker-item`;
 
-const itemHeight = 80;
 const DefaultDuration = 240;
-
-const { windowWidth } = wx.getSystemInfoSync();
-
-const rpx2px = (rpx) => Math.floor((windowWidth * rpx) / 750);
 
 const range = function (num: number, min: number, max: number) {
   return Math.min(Math.max(num, min), max);
@@ -34,6 +29,10 @@ export default class PickerItem extends SuperComponent {
     },
   };
 
+  options: ComponentsOptionsType = {
+    multipleSlots: true,
+  };
+
   externalClasses = [`${prefix}-class`];
 
   properties = props;
@@ -51,8 +50,16 @@ export default class PickerItem extends SuperComponent {
     duration: 0, // 滚动动画延迟
     value: '',
     curIndex: 0,
+    columnIndex: 0,
     labelAlias: 'label',
     valueAlias: 'value',
+  };
+
+  lifetimes = {
+    created() {
+      this.StartY = 0;
+      this.StartOffset = 0;
+    },
   };
 
   methods = {
@@ -63,30 +70,31 @@ export default class PickerItem extends SuperComponent {
     },
 
     onTouchMove(event) {
-      const { StartY, StartOffset, itemHeight } = this;
+      const { pickItemHeight } = this.data;
+      const { StartY, StartOffset } = this;
 
       // touch偏移增量
       const touchDeltaY = event.touches[0].clientY - StartY;
-      const deltaY = this.calculateViewDeltaY(touchDeltaY);
+      const deltaY = this.calculateViewDeltaY(touchDeltaY, pickItemHeight);
 
       this.setData({
-        offset: range(StartOffset + deltaY, -(this.getCount() * itemHeight), 0),
+        offset: range(StartOffset + deltaY, -(this.getCount() * pickItemHeight), 0),
         duration: DefaultDuration,
       });
     },
 
     onTouchEnd() {
-      const { offset, labelAlias, valueAlias } = this.data;
+      const { offset, labelAlias, valueAlias, columnIndex, pickItemHeight } = this.data;
       const { options } = this.properties;
 
       if (offset === this.StartOffset) {
         return;
       }
       // 调整偏移量
-      const index = range(Math.round(-offset / this.itemHeight), 0, this.getCount() - 1);
+      const index = range(Math.round(-offset / pickItemHeight), 0, this.getCount() - 1);
       this.setData({
         curIndex: index,
-        offset: -index * this.itemHeight,
+        offset: -index * pickItemHeight,
       });
 
       if (index === this._selectedIndex) {
@@ -99,20 +107,20 @@ export default class PickerItem extends SuperComponent {
         this._selectedLabel = options[index]?.[labelAlias];
         this.$parent?.triggerColumnChange({
           index,
-          column: this.columnIndex || 0,
+          column: columnIndex,
         });
       });
     },
 
     // 刷新选中状态
     update() {
-      const { options, value, labelAlias, valueAlias } = this.data;
+      const { options, value, labelAlias, valueAlias, pickItemHeight } = this.data;
 
       const index = options.findIndex((item) => item[valueAlias] === value);
       const selectedIndex = index > 0 ? index : 0;
 
       this.setData({
-        offset: -selectedIndex * this.itemHeight,
+        offset: -selectedIndex * pickItemHeight,
         curIndex: selectedIndex,
       });
 
@@ -134,13 +142,7 @@ export default class PickerItem extends SuperComponent {
    * 将屏幕滑动距离换算为视图偏移量 模拟渐进式滚动
    * @param touchDeltaY 屏幕滑动距离
    */
-  calculateViewDeltaY(touchDeltaY: number): number {
+  calculateViewDeltaY(touchDeltaY: number, itemHeight: number): number {
     return Math.abs(touchDeltaY) > itemHeight ? 1.2 * touchDeltaY : touchDeltaY;
-  }
-
-  created() {
-    this.StartY = 0;
-    this.StartOffset = 0;
-    this.itemHeight = rpx2px(itemHeight);
   }
 }

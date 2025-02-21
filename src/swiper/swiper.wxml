@@ -1,4 +1,4 @@
-<wxs src="./index.wxs" module="this" />
+<wxs src="./index.wxs" module="_this" />
 <wxs src="../common/utils.wxs" module="_" />
 
 <import src="../common/template/image.wxml" />
@@ -23,7 +23,7 @@
     <swiper-item
       wx:for="{{list}}"
       wx:key="index"
-      class="{{_.cls(classPrefix + '__item', [['preview', this.isPrev(current, index, list)], ['next', this.isNext(current, index, list)]])}}"
+      class="{{_.cls(classPrefix + '__item', [['preview', _this.isPrev(navCurrent, index, list)], ['next', _this.isNext(navCurrent, index, list)]])}}"
       data-index="{{index}}"
       bind:tap="onTap"
       aria-hidden="{{navCurrent !== index}}"
@@ -32,7 +32,7 @@
     >
       <template
         is="image"
-        data="{{ class: classPrefix + '__image-host', tClass: this.getImageClass(prefix, current, index, list), style: 'height: ' + _.addUnit(height), src: _.isObject(item) ? item.value : item, mode: 'aspectFill', ...imageProps }}"
+        data="{{tClass: _this.getImageClass(prefix, navCurrent, index, list), style: 'height: ' + _.addUnit(height), src: _.isObject(item) ? item.value : item, mode: 'aspectFill', dataset: index, ...imageProps, bindload: 'onImageLoad' }}"
       />
     </swiper-item>
   </swiper>
@@ -48,5 +48,6 @@
     show-controls="{{navigation.showControls || false}}"
     bind:nav-btn-change="onNavBtnChange"
   />
+  <slot name="navigation" />
   <slot name="nav" />
 </view>

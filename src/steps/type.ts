@@ -28,13 +28,6 @@ export interface TdStepsProps {
     value?: 'default' | 'process' | 'finish' | 'error';
   };
   /**
-   * 组件类名，用于设置组件外层元素元素类名
-   */
-  externalClasses?: {
-    type: ArrayConstructor;
-    value?: ['t-class'];
-  };
-  /**
    * 步骤条方向，有两种：横向和纵向
    * @default horizontal
    */
@@ -51,20 +44,12 @@ export interface TdStepsProps {
     value?: boolean;
   };
   /**
-   * 步骤条分割符
-   * @default line
+   * 步骤条顺序
+   * @default positive
    */
-  separator?: {
+  sequence?: {
     type: StringConstructor;
-    value?: 'line' | 'dashed' | 'arrow';
-  };
-  /**
-   * 自定义组件样式
-   * @default ''
-   */
-  style?: {
-    type: StringConstructor;
-    value?: string;
+    value?: 'positive' | 'reverse';
   };
   /**
    * 步骤条风格

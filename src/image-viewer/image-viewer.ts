@@ -1,4 +1,4 @@
-import { styles, calcIcon } from '../common/utils';
+import { styles, calcIcon, systemInfo } from '../common/utils';
 import { SuperComponent, wxComponent } from '../common/src/index';
 import config from '../common/config';
 import props from './props';
@@ -22,6 +22,7 @@ export default class ImageViewer extends SuperComponent {
     windowWidth: 0,
     swiperStyle: {},
     imagesStyle: {},
+    maskTop: 0,
   };
 
   options = {
@@ -37,13 +38,16 @@ export default class ImageViewer extends SuperComponent {
 
   ready() {
     this.saveScreenSize();
+    this.calcMaskTop();
   }
 
   observers = {
-    visible(value) {
-      this.setData({
-        currentSwiperIndex: value ? this.properties.initialIndex : 0,
-      });
+    'visible,initialIndex,images'(visible, initialIndex, images) {
+      if (visible && images?.length) {
+        this.setData({
+          currentSwiperIndex: initialIndex >= images.length ? images.length - 1 : initialIndex,
+        });
+      }
     },
 
     closeBtn(v) {
@@ -60,8 +64,20 @@ export default class ImageViewer extends SuperComponent {
   };
 
   methods = {
+    calcMaskTop() {
+      if (this.data.usingCustomNavbar) {
+        const rect = wx?.getMenuButtonBoundingClientRect() || null;
+        const { statusBarHeight } = systemInfo;
+
+        if (rect && statusBarHeight) {
+          this.setData({
+            maskTop: rect.top - statusBarHeight + rect.bottom,
+          });
+        }
+      }
+    },
     saveScreenSize() {
-      const { windowHeight, windowWidth } = wx.getSystemInfoSync();
+      const { windowHeight, windowWidth } = systemInfo;
       this.setData({
         windowHeight,
         windowWidth,
@@ -91,12 +107,24 @@ export default class ImageViewer extends SuperComponent {
           },
         };
       }
+
+      // 图片的高大于宽（纵向图），设定高度为100vh，宽度自适应，且确保宽度不超过屏幕宽度
+      const scaledHeight = ratio * windowHeight * 2;
+      if (scaledHeight < windowWidth) {
+        return {
+          styleObj: {
+            width: `${scaledHeight}rpx`,
+            height: '100vh',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+          },
+        };
+      }
+      // 当通过高度计算的图片宽度超过屏幕宽度时, 以屏幕宽度为基准, 重新计算高度
       return {
         styleObj: {
-          width: `${ratio * windowHeight * 2}rpx`,
-          height: '100vh',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
+          width: '100vw',
+          height: `${(windowWidth / imageWidth) * imageHeight * 2}rpx`,
         },
       };
     },

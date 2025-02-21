@@ -1,7 +1,7 @@
 import { SuperComponent, wxComponent } from '../common/src/index';
 import config from '../common/config';
 import props from './props';
-import { styles, addUnit } from '../common/utils';
+import { styles, addUnit, getRect } from '../common/utils';
 
 const { prefix } = config;
 const name = `${prefix}-icon`;
@@ -31,19 +31,29 @@ export default class Icon extends SuperComponent {
     },
 
     setIconStyle() {
-      const { name, color, size } = this.properties;
+      const { name, color, size, classPrefix } = this.data;
       const isImage = name.indexOf('/') !== -1;
+
       const sizeValue = addUnit(size);
-      const sizeStyle = isImage ? { width: sizeValue, height: sizeValue } : {};
       const colorStyle = color ? { color: color } : {};
       const fontStyle = size ? { 'font-size': sizeValue } : {};
-      this.setData({
-        isImage,
-        iconStyle: `${styles({
-          ...colorStyle,
-          ...fontStyle,
-          ...sizeStyle,
-        })}`,
+      const iconStyle: Record<string, any> = { ...colorStyle, ...fontStyle };
+
+      this.setData({ isImage }, async () => {
+        if (isImage) {
+          let iconSize = sizeValue;
+          if (!iconSize) {
+            await getRect(this, `.${classPrefix}`)
+              .then((res) => {
+                iconSize = addUnit(res?.height);
+              })
+              .catch(() => {});
+          }
+
+          iconStyle.width = iconSize;
+          iconStyle.height = iconSize;
+        }
+        this.setData({ iconStyle: `${styles(iconStyle)}` });
       });
     },
   };

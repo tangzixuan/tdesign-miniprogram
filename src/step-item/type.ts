@@ -14,13 +14,6 @@ export interface TdStepItemProps {
     value?: string;
   };
   /**
-   * 组件类名，用于设置组件外层元素元素类名
-   */
-  externalClasses?: {
-    type: ArrayConstructor;
-    value?: ['t-class', 't-class-content', 't-class-title', 't-class-description', 't-class-extra'];
-  };
-  /**
    * 图标。传入 slot 代表使用插槽，其他字符串代表使用内置图标
    */
   icon?: {
@@ -36,22 +29,6 @@ export interface TdStepItemProps {
     value?: StepStatus;
   };
   /**
-   * 自定义组件样式
-   * @default ''
-   */
-  style?: {
-    type: StringConstructor;
-    value?: string;
-  };
-  /**
-   * 子步骤条，仅支持 layout  = 'vertical' 时
-   * @default []
-   */
-  subStepItems?: {
-    type: ArrayConstructor;
-    value?: SubStepItem[];
-  };
-  /**
    * 标题
    * @default ''
    */
@@ -62,8 +39,3 @@ export interface TdStepItemProps {
 }
 
 export type StepStatus = 'default' | 'process' | 'finish' | 'error';
-
-export interface SubStepItem {
-  status: StepStatus;
-  title: string;
-}

@@ -7,13 +7,16 @@ interface DialogAlertOptionsType {
   context?: Context;
   selector?: string;
   title?: string;
-  content: string;
+  content?: string;
   zIndex?: number;
   asyncClose?: boolean;
   confirmButtonText?: string;
   textAlign?: string;
   cancelBtn?: string | object;
   confirmBtn?: string | object;
+  showOverlay?: boolean;
+  closeOnOverlayClick?: boolean;
+  preventScrollThrough?: boolean;
 }
 
 interface DialogConfirmOptionsType extends DialogAlertOptionsType {
@@ -37,7 +40,7 @@ interface DialogActionOptionsType {
 }
 
 const defaultOptions = {
-  actions: false,
+  actions: [],
   buttonLayout: props.buttonLayout.value,
   cancelBtn: props.cancelBtn.value,
   closeOnOverlayClick: props.closeOnOverlayClick.value,
@@ -78,7 +81,7 @@ export default {
       instance._onCancel = reject;
     });
   },
-  close(options: DialogConfirmOptionsType) {
+  close(options?: DialogConfirmOptionsType) {
     const { context, selector = '#t-dialog' } = { ...options };
     const instance = getInstance(context, selector);
     if (instance) {

@@ -2,6 +2,7 @@
 <wxs src="../common/utils.wxs" module="_" />
 
 <button
+  id="{{tId}}"
   style="{{_._style([style, customStyle])}}"
   data-custom="{{ customDataset }}"
   class="class {{className}}"
@@ -26,19 +27,20 @@
   bind:opensetting="opensetting"
   bind:launchapp="launchapp"
   bind:chooseavatar="chooseavatar"
+  bind:agreeprivacyauthorization="agreeprivacyauthorization"
   aria-label="{{ariaLabel}}"
 >
   <template
-    wx:if="{{iconName || _.isNoEmptyObj(iconData)}}"
+    wx:if="{{_icon}}"
     is="icon"
-    data="{{class: classPrefix + '__icon', tClass: prefix + '-class-icon', ariaHidden: true, name: iconName, ...iconData}}"
+    data="{{tClass: classPrefix + '__icon ' + prefix + '-class-icon', ariaHidden: true, name: iconName, ..._icon}}"
   />
   <t-loading
     wx:if="{{loading}}"
     delay="{{loadingProps.delay || 0}}"
     duration="{{loadingProps.duration || 800}}"
     indicator="{{loadingProps.indicator || true}}"
-    inheritColor="{{loadingProps.indicator || false}}"
+    inheritColor="{{loadingProps.inheritColor || true}}"
     layout="{{loadingProps.layout || 'horizontal'}}"
     pause="{{loadingProps.pause || false}}"
     progress="{{loadingProps.progress || 0}}"
@@ -52,7 +54,7 @@
   />
   <view class="{{classPrefix}}__content">
     <slot name="content" />
-    <block>{{content}}</block>
+    <block wx:if="{{content}}">{{content}}</block>
     <slot />
   </view>
   <slot name="suffix" />

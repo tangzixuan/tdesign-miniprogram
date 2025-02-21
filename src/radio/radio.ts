@@ -34,12 +34,7 @@ export default class Radio extends SuperComponent {
 
   lifetimes = {
     attached() {
-      this.initStatus();
-    },
-    ready() {
-      this.setData({
-        _placement: this.data.placement ?? this.$parent?.data?.placement ?? 'left',
-      });
+      this.init();
     },
   };
 
@@ -48,6 +43,9 @@ export default class Radio extends SuperComponent {
     borderless: {
       type: Boolean,
       value: false,
+    },
+    tId: {
+      type: String,
     },
   };
 
@@ -66,28 +64,40 @@ export default class Radio extends SuperComponent {
     optionLinked: false,
     iconVal: [],
     _placement: '',
+    _disabled: false,
+    _readonly: false,
+  };
+
+  observers = {
+    disabled(v) {
+      this.setData({ _disabled: v });
+    },
+    readonly(v) {
+      this.setData({ _readonly: v });
+    },
   };
 
   methods = {
     handleTap(e) {
-      if (this.data.disabled) return;
-
+      const { _disabled, _readonly, contentDisabled } = this.data;
       const { target } = e.currentTarget.dataset;
 
-      if (target === 'text' && this.data.contentDisabled) return;
+      if (_disabled || _readonly || (target === 'text' && contentDisabled)) return;
 
       this.doChange();
     },
     doChange() {
-      const { value, checked } = this.data;
+      const { value, checked, allowUncheck } = this.data;
+
+      const isAllowUncheck = Boolean(allowUncheck || this.$parent?.data.allowUncheck);
 
       if (this.$parent) {
-        this.$parent.updateValue(value);
+        this.$parent.updateValue(checked && isAllowUncheck ? null : value);
       } else {
-        this._trigger('change', { checked: !checked });
+        this._trigger('change', { checked: isAllowUncheck ? !checked : true });
       }
     },
-    initStatus() {
+    init() {
       const { icon } = this.data;
       const isIdArr = Array.isArray(this.$parent?.icon || icon);
 
@@ -95,12 +105,19 @@ export default class Radio extends SuperComponent {
         customIcon: isIdArr,
         slotIcon: icon === 'slot',
         iconVal: isIdArr ? this.$parent?.icon || icon : [],
+        _placement: this.data.placement ?? this.$parent?.data?.placement ?? 'left',
       });
     },
 
     setDisabled(disabled: Boolean) {
       this.setData({
-        disabled: this.data.disabled || disabled,
+        _disabled: this.data.disabled || disabled,
+      });
+    },
+
+    setReadonly(readonly: Boolean) {
+      this.setData({
+        _readonly: this.data.readonly || readonly,
       });
     },
   };

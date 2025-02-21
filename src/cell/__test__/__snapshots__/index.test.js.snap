@@ -8,7 +8,7 @@ exports[`cell :base 1`] = `
     <wx-view
       ariaLabel=""
       ariaRole=""
-      class="class t-class t-cell  t-cell--middle"
+      class="class t-class t-cell"
       hoverClass=""
       hoverStayTime="70"
       style=""
@@ -18,10 +18,10 @@ exports[`cell :base 1`] = `
         class="t-cell__left t-class-left"
       />
       <wx-view
-        class="t-cell__title"
+        class="t-cell__title t-class-center"
       >
         <wx-view
-          class="t-cell__title-text  t-class-title"
+          class="t-cell__title-text t-class-title"
         />
         <wx-view
           class="t-cell__description t-class-description"
@@ -31,25 +31,8 @@ exports[`cell :base 1`] = `
         class="t-cell__note t-class-note"
       />
       <wx-view
-        class="t-cell__right t-class-right"
-      >
-        <t-icon
-          tClass="t-cell__right-icon t-class-right-icon"
-        >
-          <wx-view
-            ariaHidden="{{false}}"
-            ariaLabel=""
-            ariaRole=""
-            class="t-icon class t-class"
-            style=""
-            bind:tap="onTap"
-          >
-            <wx-label
-              class="t-icon- t-icon-base"
-            />
-          </wx-view>
-        </t-icon>
-      </wx-view>
+        class="t-cell__right t-cell__right--middle t-class-right"
+      />
     </wx-view>
   </main>
 </main>
@@ -59,7 +42,7 @@ exports[`cell :with group 1`] = `
 <main>
   <main>
     <wx-view
-      class="t-cell-group t-cell-group--false t-cell-group--default class t-class"
+      class="t-cell-group t-cell-group--default class t-class"
       style=""
     />
   </main>

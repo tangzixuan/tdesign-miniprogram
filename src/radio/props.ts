@@ -6,11 +6,6 @@
 
 import { TdRadioProps } from './type';
 const props: TdRadioProps = {
-  /** 复选框和内容相对位置 */
-  placement: {
-    type: String,
-    value: null,
-  },
   /** 是否允许取消选中 */
   allowUncheck: {
     type: Boolean,
@@ -42,14 +37,10 @@ const props: TdRadioProps = {
   },
   /** 是否为禁用态 */
   disabled: {
-    type: Boolean,
+    type: null,
     value: undefined,
   },
-  /** 组件类名，分别用于设置 组件外层、单选图标、主文案、内容 等元素类名 */
-  externalClasses: {
-    type: Array,
-  },
-  /** 自定义选中图标和非选中图标。示例：[选中态图标，非选中态图标]。值为 circle 表示图标为填充型图标，值为 line 表示图标为描边型图标 */
+  /** 自定义选中图标和非选中图标。使用 Array 时表示：`[选中态图标，非选中态图标]`。使用 String 时，值为 circle 表示填充型图标、值为 line 表示描边型图标、值为 dot 表示圆点图标，值为 slot 时使用插槽 */
   icon: {
     type: null,
     value: 'circle',
@@ -72,6 +63,15 @@ const props: TdRadioProps = {
   name: {
     type: String,
     value: '',
+  },
+  /** 复选框和内容相对位置。优先级高于 RadioGroup.placement。Radio 单独存在时，默认值为 left。如果父组件存在 RadioGroup，默认值便由 RadioGroup.placement 决定 */
+  placement: {
+    type: String,
+  },
+  /** 只读状态 */
+  readonly: {
+    type: null,
+    value: undefined,
   },
   /** 单选按钮的值 */
   value: {

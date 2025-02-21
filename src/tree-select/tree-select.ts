@@ -2,12 +2,22 @@ import { SuperComponent, wxComponent } from '../common/src/index';
 import config from '../common/config';
 import props from './props';
 
+import type { TreeOptionData } from '../common/common';
+
 const { prefix } = config;
 const name = `${prefix}-tree-select`;
 
 @wxComponent()
 export default class TreeSelect extends SuperComponent {
-  externalClasses = [`${prefix}-class`];
+  externalClasses = [
+    `${prefix}-class`,
+    `${prefix}-class-left-column`,
+    `${prefix}-class-left-item`,
+    `${prefix}-class-middle-item`,
+    `${prefix}-class-right-column`,
+    `${prefix}-class-right-item`,
+    `${prefix}-class-right-item-label`,
+  ];
 
   options = {
     multipleSlots: true,
@@ -16,11 +26,17 @@ export default class TreeSelect extends SuperComponent {
   data = {
     prefix,
     classPrefix: name,
-    labelAlias: 'label',
-    valueAlias: 'value',
+    scrollIntoView: null,
   };
 
-  properties = props;
+  properties = {
+    ...props,
+    customValue: {
+      // 用于自定义选中值，优先级高于value，用于弥补value为[]场景
+      type: null,
+      value: null,
+    },
+  };
 
   controlledProps = [
     {
@@ -30,29 +46,35 @@ export default class TreeSelect extends SuperComponent {
   ];
 
   observers = {
-    value() {
+    'value, customValue, options, keys, multiple'() {
       this.buildTreeOptions();
     },
+  };
 
-    keys(obj) {
-      this.setData({
-        labelAlias: obj.label || 'label',
-        valueAlias: obj.value || 'value',
-      });
+  lifetimes = {
+    ready() {
+      this.getScrollIntoView('init');
     },
   };
 
   methods = {
     buildTreeOptions() {
-      const { options, value, multiple } = this.data;
+      const { options, value, defaultValue, customValue, multiple, keys } = this.data;
       const treeOptions = [];
+
       let level = -1;
       let node = { children: options };
 
+      if (options.length === 0) return;
+
       while (node && node.children) {
         level += 1;
-        const list = node.children;
-        const thisValue = value?.[level];
+        const list = node.children.map((item: TreeOptionData) => ({
+          label: item[keys?.label || 'label'],
+          value: item[keys?.value || 'value'],
+          children: item.children,
+        }));
+        const thisValue = customValue?.[level] || value?.[level];
 
         treeOptions.push([...list]);
 
@@ -68,43 +90,72 @@ export default class TreeSelect extends SuperComponent {
       const leafLevel = Math.max(0, level);
 
       if (multiple) {
-        const finalValue = this.data.value || this.data.defaultValue;
-        if (!Array.isArray(finalValue[leafLevel])) {
+        const finalValue = customValue || value || defaultValue;
+        if (finalValue[leafLevel] != null && !Array.isArray(finalValue[leafLevel])) {
           throw TypeError('应传入数组类型的 value');
         }
       }
 
       this.setData({
+        innerValue:
+          customValue ||
+          treeOptions?.map((ele, idx) => {
+            const v = idx === treeOptions.length - 1 && multiple ? [ele[0].value] : ele[0].value;
+            return value?.[idx] || v;
+          }),
         leafLevel,
         treeOptions,
       });
     },
 
+    getScrollIntoView(status: string) {
+      const { value, customValue, scrollIntoView } = this.data;
+      if (status === 'init') {
+        const _value = customValue || value;
+        const scrollIntoView = Array.isArray(_value)
+          ? _value.map((item) => {
+              return Array.isArray(item) ? item[0] : item;
+            })
+          : [_value];
+        this.setData({
+          scrollIntoView,
+        });
+      } else {
+        if (scrollIntoView === null) return;
+        this.setData({
+          scrollIntoView: null,
+        });
+      }
+    },
+
     onRootChange(e) {
-      const { value } = this.data;
+      const { innerValue } = this.data;
       const { value: itemValue } = e.detail;
 
-      value[0] = itemValue;
+      this.getScrollIntoView('none');
+      innerValue[0] = itemValue;
 
-      this._trigger('change', { value, level: 0 });
+      this._trigger('change', { value: innerValue, level: 0 });
     },
 
     handleTreeClick(e) {
       const { level, value: itemValue } = e.currentTarget.dataset;
-      const { value } = this.data;
+      const { innerValue } = this.data;
 
-      value[level] = itemValue;
-      this._trigger('change', { value, level: 1 });
+      innerValue[level] = itemValue;
+      this.getScrollIntoView('none');
+      this._trigger('change', { value: innerValue, level: 1 });
     },
 
     handleRadioChange(e) {
-      const { value } = this.data;
+      const { innerValue } = this.data;
       const { value: itemValue } = e.detail;
       const { level } = e.target.dataset;
 
-      value[level] = itemValue;
+      innerValue[level] = itemValue;
 
-      this._trigger('change', { value, level });
+      this.getScrollIntoView('none');
+      this._trigger('change', { value: innerValue, level });
     },
   };
 }

@@ -1,6 +1,5 @@
 <template name="image">
   <t-image
-    class="{{class}}"
     t-class="{{tClass}}"
     t-class-load="{{tClassLoad}}"
     style="{{style || ''}}"
@@ -15,6 +14,7 @@
     mode="{{mode || 'scaleToFill'}}"
     webp="{{webp || false}}"
     showMenuByLongpress="{{showMenuByLongpress || false}}"
+    data-custom="{{dataset || null}}"
     bind:error="{{binderror}}"
     bind:load="{{bindload}}"
   />

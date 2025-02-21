@@ -6,7 +6,7 @@
 
 import { TdDropdownItemProps } from './type';
 const props: TdDropdownItemProps = {
-  /** 是否禁用 */
+  /** 是否禁用操作项 */
   disabled: {
     type: Boolean,
     value: false,
@@ -39,10 +39,10 @@ const props: TdDropdownItemProps = {
     type: null,
     value: 1,
   },
-  /** 已废弃。选项排列；不再支持 tree 布局，可与 treeSelect 配合使用 */
-  optionsLayout: {
+  /** 复选框和内容相对位置，仅单选菜单栏有效 */
+  placement: {
     type: String,
-    value: 'columns',
+    value: 'left',
   },
   /** 选中值 */
   value: {

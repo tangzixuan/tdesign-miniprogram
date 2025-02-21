@@ -5,12 +5,12 @@ exports[`Fab Fab advance demo works fine 1`] = `
   <t-fab
     buttonProps="{{
       Object {
-        "icon": "call",
-        "openType": "getPhoneNumber",
+        "icon": "share",
+        "openType": "share",
       }
     }}"
     icon="add"
-    text="获取手机号"
+    text="分享给朋友"
     bind:click="handleClick"
   />
 </advance>
@@ -24,4 +24,25 @@ exports[`Fab Fab base demo works fine 1`] = `
     bind:click="handleClick"
   />
 </base>
+`;
+
+exports[`Fab Fab draggable demo works fine 1`] = `
+<draggable>
+  <t-fab
+    ariaLabel="增加"
+    draggable="{{true}}"
+    icon="gesture-press"
+    text="拖我"
+    usingCustomNavbar="{{true}}"
+    yBounds="{{
+      Array [
+        0,
+        32,
+      ]
+    }}"
+    bind:click="handleClick"
+    bind:dragend="handleDragEnd"
+    bind:dragstart="handleDragStart"
+  />
+</draggable>
 `;

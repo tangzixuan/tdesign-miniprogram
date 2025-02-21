@@ -8,17 +8,18 @@ exports[`calendar :base 1`] = `
       bind:visible-change="onVisibleChange"
     >
       <wx-view
-        ariaModal="{{true}}"
-        ariaRole="dialog"
         class="t-popup t-popup--bottom t-fade-enter t-fade-enter-active class t-class"
         style="z-index:11500;"
         bind:transitionend="onTransitionEnd"
       >
         <wx-view
+          $gdc="{{[Function]}}"
+          $wxs:bind:touchmove="{{[Function]}}"
           class="t-popup__content t-class-content"
+          data-prevention="{{true}}"
         >
           <wx-view
-            class="t-calendar t-calendar--popup class t-class"
+            class="t-calendar t-calendar--popup t-calendar-switch-mode--none class t-class"
             style=""
           >
             <wx-view
@@ -38,7 +39,7 @@ exports[`calendar :base 1`] = `
                 ariaLabel="关闭"
                 ariaRole="button"
                 class="t-icon class t-class"
-                style="font-size: 24px;"
+                style=""
                 bind:tap="onTap"
               >
                 <wx-label
@@ -92,12 +93,17 @@ exports[`calendar :base 1`] = `
               scrollIntoView="year_2022_month_9"
               scrollY="{{true}}"
               showScrollbar="{{false}}"
+              bind:scroll="onScroll"
             >
               <wx-view
-                class="t-calendar__month"
+                class="t-calendar__month t-calendar-header "
                 id="year_2022_month_9"
               >
-                2022 年 10 月
+                <wx-view
+                  class="t-calendar-header__title"
+                >
+                   2022 年 10 月
+                </wx-view>
               </wx-view>
               <wx-view
                 class="t-calendar__dates"
@@ -738,6 +744,7 @@ exports[`calendar :base 1`] = `
                 data-extra=""
                 data-type=""
                 tClass=""
+                bind:agreeprivacyauthorization="onTplButtonTap"
                 bind:contact="onTplButtonTap"
                 bind:error="onTplButtonTap"
                 bind:getphonenumber="onTplButtonTap"
@@ -750,12 +757,13 @@ exports[`calendar :base 1`] = `
                   appParameter=""
                   ariaLabel=""
                   class="class t-button t-class t-button--base t-button--primary t-button--rectangle t-button--size-medium t-button--block"
-                  data-custom="{{null}}"
+                  data-custom=""
                   formType=""
                   hoverClass="t-button--hover"
                   hoverStartTime="{{20}}"
                   hoverStayTime="{{70}}"
                   hoverStopPropagation="{{false}}"
+                  id=""
                   lang="en"
                   openType=""
                   sendMessageImg=""
@@ -764,6 +772,7 @@ exports[`calendar :base 1`] = `
                   sessionFrom=""
                   showMessageCard="{{false}}"
                   style=""
+                  bind:agreeprivacyauthorization="agreeprivacyauthorization"
                   bind:chooseavatar="chooseavatar"
                   bind:contact="contact"
                   bind:error="error"
@@ -776,8 +785,7 @@ exports[`calendar :base 1`] = `
                   <wx-view
                     class="t-button__content"
                   >
-                    
-                    确定
+                    确认
                   </wx-view>
                 </wx-button>
               </t-button>
@@ -790,7 +798,6 @@ exports[`calendar :base 1`] = `
         </wx-view>
       </wx-view>
       <t-overlay
-        class="test"
         id="popup-overlay"
         bind:tap="handleOverlayClick"
       >
@@ -798,7 +805,7 @@ exports[`calendar :base 1`] = `
           ariaLabel="关闭"
           ariaRole="button"
           class="t-overlay t-fade-enter t-fade-enter-active class"
-          style="z-index:11000;"
+          style="--td-overlay-transition-duration:300ms; z-index:11000; top:0px;"
           bind:tap="handleClick"
           catch:touchmove="noop"
           bind:transitionend="onTransitionEnd"

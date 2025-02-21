@@ -1,10 +1,18 @@
-<wxs src="./action-sheet.wxs" module="this" />
+<wxs src="./action-sheet.wxs" module="_this" />
 <wxs src="../common/utils.wxs" module="_" />
 <import src="./template/list.wxml" />
 <import src="./template/grid.wxml" />
 
 <view id="{{classPrefix}}" style="{{_._style([style, customStyle])}}" class="{{classPrefix}} class {{prefix}}-class">
-  <t-popup visible="{{visible}}" placement="bottom" bind:visible-change="onPopupVisibleChange">
+  <t-popup
+    visible="{{visible}}"
+    placement="bottom"
+    usingCustomNavbar="{{usingCustomNavbar}}"
+    bind:visible-change="onPopupVisibleChange"
+    show-overlay="{{showOverlay}}"
+    z-index="{{ popupProps.zIndex || defaultPopUpzIndex }}"
+    overlay-props="{{ popupProps.overlayProps || defaultPopUpProps }}"
+  >
     <view
       class="{{_.cls(classPrefix + '__content', [['grid', gridThemeItems.length]])}} {{prefix}}-class-content"
       tabindex="0"
@@ -34,7 +42,7 @@
         bind:tap="onCancel"
         aria-role="button"
       >
-        {{ cancelText }}
+        {{ cancelText || '取消' }}
       </view>
     </view>
   </t-popup>
